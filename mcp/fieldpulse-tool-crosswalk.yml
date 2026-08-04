@@ -1,0 +1,208 @@
+generated: '2026-08-04'
+method: derived
+source: mcp/fieldpulse-mcp.yml + openapi/fieldpulse-api-openapi-original.json
+description: 'Crosswalk between the tools FieldPulse''s live MCP server exposes and the operations its
+  OpenAPI publishes. The headline finding is a complete surface divergence: the MCP server is a documentation-retrieval
+  server hosted by the docs platform, so NONE of its three tools is backed by a FieldPulse Open API operation,
+  and NONE of the 109 REST operations is reachable as an MCP tool. An agent can read FieldPulse documentation
+  over MCP but must call the REST API directly, with an x-api-key issued by support, to do anything in
+  the product.'
+surfaces:
+  openapi:
+    file: openapi/fieldpulse-api-openapi-original.json
+    source: https://help.fieldpulse.com/openapi/fieldpulse-api.json
+    servers:
+    - https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+    gated: true
+    note: Spec is anonymously fetchable; the API itself requires an x-api-key header issued by FieldPulse
+      support and returns 403 to unauthenticated callers.
+  graphql:
+    present: false
+    note: No GraphQL surface found on any FieldPulse host.
+  mcp:
+    url: https://help.fieldpulse.com/mcp
+    gated: false
+    note: tools/list answered anonymously with HTTP 200 — the input schemas recorded here are the real
+      published schemas.
+crosswalk: []
+mcp_only:
+- tool: search_field_pulse_docs
+  reason: Documentation search over the help.fieldpulse.com knowledge base. No FieldPulse Open API operation
+    exposes documentation search.
+- tool: query_docs_filesystem_field_pulse_docs
+  reason: Read-only virtual filesystem over documentation pages and OpenAPI specs, served by the docs
+    platform. No REST equivalent.
+- tool: submit_feedback
+  reason: Documentation feedback submission handled by the docs platform. No REST equivalent; FieldPulse
+    product support is email/chat based.
+rest_only:
+- capability: Assets
+  operations:
+  - deleteAssetsById
+  - getAssets
+  - getAssetsById
+  - postAssets
+  - putAssetsById
+- capability: Assets Category
+  operations:
+  - deleteAssetsCategoryById
+  - getAssetsCategory
+  - getAssetsCategoryById
+  - postAssetsCategory
+  - putAssetsCategoryById
+- capability: Comments
+  operations:
+  - deleteCommentsById
+  - getComments
+  - getCommentsById
+  - postComments
+  - putCommentsById
+- capability: Company Profile
+  operations:
+  - getCompanyProfile
+  - getCompanyProfileById
+- capability: Contracts
+  operations:
+  - getContracts
+  - getContractsById
+- capability: Custom Fields
+  operations:
+  - deleteCustomFieldsByCustomfieldId
+  - getCustomFields
+  - getCustomFieldsByCustomfieldId
+  - postCustomFields
+  - putCustomFieldsByCustomfieldId
+- capability: Customers
+  operations:
+  - deleteCustomersByCustomerId
+  - deleteCustomersByCustomerIdCustomerContactByContactId
+  - getCustomers
+  - getCustomersByCustomerId
+  - getCustomersByCustomerIdCustomerContact
+  - getCustomersByCustomerIdCustomerContactByContactId
+  - postCustomers
+  - postCustomersByCustomerIdCustomerContact
+  - putCustomersByCustomerId
+  - putCustomersByCustomerIdCustomerContactByContactId
+- capability: Estimates
+  operations:
+  - deleteEstimatesByEstimateId
+  - getEstimates
+  - getEstimatesByEstimateId
+  - getEstimatesQbClasses
+  - postEstimates
+  - putEstimatesByEstimateId
+- capability: Invoices
+  operations:
+  - deleteInvoicesByInvoiceId
+  - getInvoices
+  - getInvoicesByInvoiceId
+  - getInvoicesQbClasses
+  - postInvoices
+  - putInvoicesByInvoiceId
+  - putInvoicesByInvoiceIdPriceUpdate
+- capability: Items
+  operations:
+  - getItems
+  - getItemsById
+  - postItems
+  - putItemsById
+- capability: Jobs
+  operations:
+  - deleteJobsByJobId
+  - getJobs
+  - getJobsByJobId
+  - getJobsQbClasses
+  - getJobsStatusWorkflowStatuses
+  - getJobsStatusWorkflows
+  - postJobs
+  - putJobsByJobId
+- capability: Lead Source
+  operations:
+  - getLeadSource
+- capability: Locations
+  operations:
+  - deleteLocationsByLocationId
+  - getLocations
+  - getLocationsByLocationId
+  - postLocations
+  - putLocationsByLocationId
+- capability: Material Lists
+  operations:
+  - deleteMaterialListById
+  - getMaterialListById
+  - getMaterialLists
+  - postMaterialList
+  - postMaterialListsByIdConnect
+  - postMaterialListsByIdDisconnect
+  - postMaterialListsByIdItemConnect
+  - putMaterialListById
+- capability: Payments
+  operations:
+  - deletePaymentsById
+  - getPayments
+  - getPaymentsById
+  - postPayments
+  - putPaymentsById
+- capability: Pipeline Status
+  operations:
+  - getPipelineStatus
+- capability: Projects
+  operations:
+  - deleteProjectsByProjectId
+  - getProjects
+  - getProjectsByProjectId
+  - postProjects
+  - putProjectsByProjectId
+- capability: Purchase Orders
+  operations:
+  - deletePurchaseOrdersById
+  - getPurchaseOrders
+  - getPurchaseOrdersById
+  - postPurchaseOrders
+  - putPurchaseOrdersById
+- capability: Subtasks
+  operations:
+  - deleteSubtasksById
+  - getSubtasks
+  - getSubtasksById
+  - postSubtasks
+  - putSubtasksById
+- capability: Tags
+  operations:
+  - deleteTagsByTagId
+  - getTags
+  - getTagsByTagId
+  - postTags
+  - putTagsByTagId
+- capability: Teams
+  operations:
+  - getTeams
+- capability: Timesheets
+  operations:
+  - deleteTimesheetsById
+  - getTimesheets
+  - getTimesheetsById
+  - postTimesheets
+  - putTimesheetsById
+- capability: Users
+  operations:
+  - getUsers
+- capability: Vendors
+  operations:
+  - getVendors
+  - getVendorsById
+- capability: Version
+  operations:
+  - getVersion
+coverage:
+  tools_named: 3
+  tools_bound_to_rest: 0
+  mcp_only_tools: 3
+  rest_operations_total: 109
+  rest_operations_with_a_tool: 0
+  rest_capabilities_total: 25
+x-evidence:
+  fetched: '2026-08-04'
+  mcp_tools_list_http_status: 200
+  openapi_http_status: 200

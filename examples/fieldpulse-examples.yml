@@ -1,0 +1,710 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/fieldpulse-api-openapi-original.json
+description: Inventory of the examples FieldPulse ships inside its published OpenAPI. The spec carries
+  no components.schemas at all, so these example maps are the ONLY machine-readable description of request
+  payloads — a client generator has nothing else to work from. Response examples exist only on error responses;
+  no 200 response in the spec carries an example or a schema, so success payload shapes are undocumented.
+coverage:
+  operations_total: 109
+  operations_with_request_body_example: 40
+  response_examples_total: 363
+  response_examples_by_status:
+    '200': 1
+    '400': 40
+    '401': 108
+    '404': 108
+    '500': 106
+  success_response_examples: 1
+  components_schemas: 0
+response_examples:
+- status: '401'
+  media_type: application/json
+  example:
+    message: Unauthorized
+- status: '404'
+  media_type: application/json
+  example:
+    message: Request URL not found
+- status: '500'
+  media_type: application/json
+  example:
+    message: Internal Server Error
+request_body_examples:
+- operationId: postItems
+  method: POST
+  path: /items
+  tag: Items
+  fields: 48
+  field_names:
+  - auto_reorder_level
+  - automatic_markup_percentage
+  - customfields
+  - default_description
+  - default_quantity
+  - default_taxable
+  - default_unit_cost
+  - default_unit_price
+  - external_id
+  - external_sync_status
+  - external_type
+  - inventory_hub_items
+  - inventory_mode
+  - is_active
+  - is_automatic_replenishment_by_purchase_order_enabled
+  - is_labor_item
+  - is_round_up_to_even_dimensional_size
+  - item_links
+  - item_price_tiers
+  - maximum_dimensional_size
+  - minimum_dimensional_size
+  - minimum_order_quantity
+  - name
+  - price_update_method
+  - qbo_asset_account_id
+  - qbo_expense_account_id
+  - qbo_id
+  - qbo_income_account_id
+  - qbo_purchase_tax_code_id
+  - qbo_sales_tax_code_id
+  - quantity_available
+  - replenishment_level
+  - serialized_inventories
+  - sku
+  - supplier_item_id
+  - tags
+  - tax_rate
+  - track_inventory
+  - type
+  - unit_cost_per_unit_measure
+  - unit_measure
+  - unit_price_per_unit_measure
+  - upc
+  - vendor_id
+  - vendor_name
+  - vendor_type
+  - xero_sales_account
+  - xero_tax_account
+- operationId: putItemsById
+  method: PUT
+  path: /items/{id}
+  tag: Items
+  fields: 48
+  field_names:
+  - auto_reorder_level
+  - automatic_markup_percentage
+  - customfields
+  - default_description
+  - default_quantity
+  - default_taxable
+  - default_unit_cost
+  - default_unit_price
+  - external_id
+  - external_sync_status
+  - external_type
+  - inventory_hub_items
+  - inventory_mode
+  - is_active
+  - is_automatic_replenishment_by_purchase_order_enabled
+  - is_labor_item
+  - is_round_up_to_even_dimensional_size
+  - item_links
+  - item_price_tiers
+  - maximum_dimensional_size
+  - minimum_dimensional_size
+  - minimum_order_quantity
+  - name
+  - price_update_method
+  - qbo_asset_account_id
+  - qbo_expense_account_id
+  - qbo_id
+  - qbo_income_account_id
+  - qbo_purchase_tax_code_id
+  - qbo_sales_tax_code_id
+  - quantity_available
+  - replenishment_level
+  - serialized_inventories
+  - sku
+  - supplier_item_id
+  - tags
+  - tax_rate
+  - track_inventory
+  - type
+  - unit_cost_per_unit_measure
+  - unit_measure
+  - unit_price_per_unit_measure
+  - upc
+  - vendor_id
+  - vendor_name
+  - vendor_type
+  - xero_sales_account
+  - xero_tax_account
+- operationId: postCustomers
+  method: POST
+  path: /customers
+  tag: Customers
+  fields: 30
+  field_names:
+  - account_type
+  - alt_email
+  - assigned_to
+  - billing_address_1
+  - billing_address_2
+  - billing_city
+  - billing_state
+  - billing_zip_code
+  - company_name
+  - customfields
+  - display_name
+  - email
+  - first_name
+  - has_different_billing_address
+  - job_notes
+  - last_name
+  - lead_source_id
+  - locations
+  - notes
+  - phone
+  - pipeline_status_id
+  - secondary_email
+  - secondary_phone
+  - service_address_1
+  - service_address_2
+  - service_address_city
+  - service_address_state
+  - service_address_zip_code
+  - status
+  - tags
+- operationId: putCustomersByCustomerId
+  method: PUT
+  path: /customers/{customerId}
+  tag: Customers
+  fields: 30
+  field_names:
+  - account_type
+  - alt_email
+  - assigned_to
+  - billing_address_1
+  - billing_address_2
+  - billing_city
+  - billing_state
+  - billing_zip_code
+  - company_name
+  - customfields
+  - display_name
+  - email
+  - first_name
+  - has_different_billing_address
+  - job_notes
+  - last_name
+  - lead_source_id
+  - locations
+  - notes
+  - phone
+  - pipeline_status_id
+  - secondary_email
+  - secondary_phone
+  - service_address_1
+  - service_address_2
+  - service_address_city
+  - service_address_state
+  - service_address_zip_code
+  - status
+  - tags
+- operationId: postPurchaseOrders
+  method: POST
+  path: /purchase-orders
+  tag: Purchase Orders
+  fields: 28
+  field_names:
+  - assigned_id
+  - comment
+  - customer_id
+  - delivery_address
+  - delivery_city
+  - delivery_flat
+  - delivery_instruction
+  - delivery_method
+  - delivery_postcode
+  - delivery_state
+  - expected_delivery_at
+  - invoice_id
+  - items
+  - job_id
+  - order_at
+  - order_email
+  - order_number
+  - order_phone
+  - payment_status
+  - pickup_branch_id
+  - project_id
+  - received_at
+  - status
+  - 'tax_rate '
+  - title
+  - vendor_id
+  - vendor_name
+  - vendor_type
+- operationId: putPurchaseOrdersById
+  method: PUT
+  path: /purchase-orders/{id}
+  tag: Purchase Orders
+  fields: 28
+  field_names:
+  - assigned_id
+  - comment
+  - customer_id
+  - delivery_address
+  - delivery_city
+  - delivery_flat
+  - delivery_instruction
+  - delivery_method
+  - delivery_postcode
+  - delivery_state
+  - expected_delivery_at
+  - invoice_id
+  - items
+  - job_id
+  - order_at
+  - order_email
+  - order_number
+  - order_phone
+  - payment_status
+  - pickup_branch_id
+  - project_id
+  - received_at
+  - status
+  - 'tax_rate '
+  - title
+  - vendor_id
+  - vendor_name
+  - vendor_type
+- operationId: postAssets
+  method: POST
+  path: /assets
+  tag: Assets
+  fields: 24
+  field_names:
+  - asset_category_id
+  - asset_type
+  - condition
+  - customer_id
+  - install_date
+  - is_template
+  - issues
+  - job_ids
+  - labor_warranty_expiration
+  - labor_warranty_information
+  - location
+  - maintenance_agreement_id
+  - manufacturer
+  - model
+  - model_details
+  - model_number
+  - model_year
+  - notes
+  - serial_number
+  - status
+  - tag
+  - title
+  - warranty_expiration
+  - warranty_information
+- operationId: putAssetsById
+  method: PUT
+  path: /assets/{id}
+  tag: Assets
+  fields: 24
+  field_names:
+  - asset_category_id
+  - asset_type
+  - condition
+  - customer_id
+  - install_date
+  - is_template
+  - issues
+  - job_ids
+  - labor_warranty_expiration
+  - labor_warranty_information
+  - location
+  - maintenance_agreement_id
+  - manufacturer
+  - model
+  - model_details
+  - model_number
+  - model_year
+  - notes
+  - serial_number
+  - status
+  - tag
+  - title
+  - warranty_expiration
+  - warranty_information
+- operationId: postTimesheets
+  method: POST
+  path: /timesheets
+  tag: Timesheets
+  fields: 15
+  field_names:
+  - clock_in_location
+  - clock_in_method
+  - clock_in_notes
+  - clock_in_time
+  - clock_in_title
+  - clock_out_location
+  - clock_out_method
+  - clock_out_notes
+  - clock_out_time
+  - clock_out_title
+  - is_historical
+  - job_id
+  - subtask_id
+  - type
+  - user_id
+- operationId: putTimesheetsById
+  method: PUT
+  path: /timesheets/{id}
+  tag: Timesheets
+  fields: 15
+  field_names:
+  - clock_in_location
+  - clock_in_method
+  - clock_in_notes
+  - clock_in_time
+  - clock_in_title
+  - clock_out_location
+  - clock_out_method
+  - clock_out_notes
+  - clock_out_time
+  - clock_out_title
+  - is_historical
+  - job_id
+  - subtask_id
+  - type
+  - user_id
+- operationId: postProjects
+  method: POST
+  path: /projects
+  tag: Projects
+  fields: 13
+  field_names:
+  - completion_percentage
+  - customer_id
+  - description
+  - end_time
+  - job_notes
+  - location
+  - location_id
+  - name
+  - notes
+  - start_time
+  - status
+  - status_id
+  - status_workflow_id
+- operationId: putProjectsByProjectId
+  method: PUT
+  path: /projects/{projectId}
+  tag: Projects
+  fields: 13
+  field_names:
+  - completion_percentage
+  - customer_id
+  - description
+  - end_time
+  - job_notes
+  - location
+  - location_id
+  - name
+  - notes
+  - start_time
+  - status
+  - status_id
+  - status_workflow_id
+- operationId: postLocations
+  method: POST
+  path: /locations
+  tag: Locations
+  fields: 12
+  field_names:
+  - address_1
+  - address_2
+  - city
+  - is_main_location
+  - is_primary_location
+  - notes
+  - object_id
+  - object_type
+  - primary_customer_contact_id
+  - state
+  - title
+  - zip_code
+- operationId: putLocationsByLocationId
+  method: PUT
+  path: /locations/{locationId}
+  tag: Locations
+  fields: 12
+  field_names:
+  - address_1
+  - address_2
+  - city
+  - is_main_location
+  - is_primary_location
+  - notes
+  - object_id
+  - object_type
+  - primary_customer_contact_id
+  - state
+  - title
+  - zip_code
+- operationId: postSubtasks
+  method: POST
+  path: /subtasks
+  tag: Subtasks
+  fields: 11
+  field_names:
+  - assignments
+  - customer_id
+  - description
+  - due_date
+  - is_required_for_job
+  - is_template
+  - job_id
+  - project_id
+  - recurring_job_id
+  - status
+  - title
+- operationId: putSubtasksById
+  method: PUT
+  path: /subtasks/{id}
+  tag: Subtasks
+  fields: 11
+  field_names:
+  - assignments
+  - customer_id
+  - description
+  - due_date
+  - is_required_for_job
+  - is_template
+  - job_id
+  - project_id
+  - recurring_job_id
+  - status
+  - title
+- operationId: postCustomFields
+  method: POST
+  path: /custom-fields
+  tag: Custom Fields
+  fields: 8
+  field_names:
+  - can_customer_view
+  - field_widget_id
+  - is_active
+  - name
+  - object
+  - permission
+  - position
+  - settings
+- operationId: putCustomFieldsByCustomfieldId
+  method: PUT
+  path: /custom-fields/{customfieldId}
+  tag: Custom Fields
+  fields: 8
+  field_names:
+  - can_customer_view
+  - field_widget_id
+  - is_active
+  - name
+  - object
+  - permission
+  - position
+  - settings
+- operationId: postPayments
+  method: POST
+  path: /payments
+  tag: Payments
+  fields: 7
+  field_names:
+  - amount
+  - invoice_id
+  - 'method '
+  - notes
+  - payment_date
+  - payment_method_id
+  - square_transaction_id
+- operationId: putPaymentsById
+  method: PUT
+  path: /payments/{id}
+  tag: Payments
+  fields: 7
+  field_names:
+  - amount
+  - invoice_id
+  - 'method '
+  - notes
+  - payment_date
+  - payment_method_id
+  - square_transaction_id
+- operationId: postCustomersByCustomerIdCustomerContact
+  method: POST
+  path: /customers/{customerId}/customer-contact
+  tag: Customers
+  fields: 6
+  field_names:
+  - email
+  - first_name
+  - last_name
+  - notes
+  - order
+  - phone
+- operationId: putCustomersByCustomerIdCustomerContactByContactId
+  method: PUT
+  path: /customers/{customerId}/customer-contact/{contactId}
+  tag: Customers
+  fields: 6
+  field_names:
+  - email
+  - first_name
+  - last_name
+  - notes
+  - order
+  - phone
+- operationId: postComments
+  method: POST
+  path: /comments
+  tag: Comments
+  fields: 3
+  field_names:
+  - commentable_id
+  - commentable_type
+  - text
+- operationId: postMaterialListsByIdItemConnect
+  method: POST
+  path: /material-lists/{id}/item-connect
+  tag: Material Lists
+  fields: 3
+  field_names:
+  - item_ids
+  - to_entity
+  - to_entity_id
+- operationId: postTags
+  method: POST
+  path: /tags
+  tag: Tags
+  fields: 3
+  field_names:
+  - color
+  - title
+  - type
+- operationId: putCommentsById
+  method: PUT
+  path: /comments/{id}
+  tag: Comments
+  fields: 3
+  field_names:
+  - commentable_id
+  - commentable_type
+  - text
+- operationId: putTagsByTagId
+  method: PUT
+  path: /tags/{tagId}
+  tag: Tags
+  fields: 3
+  field_names:
+  - color
+  - title
+  - type
+- operationId: postMaterialListsByIdConnect
+  method: POST
+  path: /material-lists/{id}/connect
+  tag: Material Lists
+  fields: 2
+  field_names:
+  - to_entity
+  - to_entity_id
+- operationId: postMaterialListsByIdDisconnect
+  method: POST
+  path: /material-lists/{id}/disconnect
+  tag: Material Lists
+  fields: 2
+  field_names:
+  - from_entity
+  - from_entity_id
+- operationId: postAssetsCategory
+  method: POST
+  path: /assets-category
+  tag: Assets Category
+  fields: 1
+  field_names:
+  - title
+- operationId: putAssetsCategoryById
+  method: PUT
+  path: /assets-category/{id}
+  tag: Assets Category
+  fields: 1
+  field_names:
+  - title
+- operationId: putInvoicesByInvoiceIdPriceUpdate
+  method: PUT
+  path: /invoices/{invoiceId}/price-update
+  tag: Invoices
+  fields: 1
+  field_names:
+  - line_items
+- operationId: postEstimates
+  method: POST
+  path: /estimates
+  tag: Estimates
+  fields: 0
+  field_names: []
+- operationId: postInvoices
+  method: POST
+  path: /invoices
+  tag: Invoices
+  fields: 0
+  field_names: []
+- operationId: postJobs
+  method: POST
+  path: /jobs
+  tag: Jobs
+  fields: 0
+  field_names: []
+- operationId: postMaterialList
+  method: POST
+  path: /material-list
+  tag: Material Lists
+  fields: 0
+  field_names: []
+- operationId: putEstimatesByEstimateId
+  method: PUT
+  path: /estimates/{estimateId}
+  tag: Estimates
+  fields: 0
+  field_names: []
+- operationId: putInvoicesByInvoiceId
+  method: PUT
+  path: /invoices/{invoiceId}
+  tag: Invoices
+  fields: 0
+  field_names: []
+- operationId: putJobsByJobId
+  method: PUT
+  path: /jobs/{jobId}
+  tag: Jobs
+  fields: 0
+  field_names: []
+- operationId: putMaterialListById
+  method: PUT
+  path: /material-list/{id}
+  tag: Material Lists
+  fields: 0
+  field_names: []
+parameter_examples:
+  present: true
+  quality: placeholder
+  note: Query and path parameters carry example values of the literal form '<string>', '<array>', '<boolean>'
+    rather than realistic values, so they document the type but not usable input.
+gaps:
+- No components.schemas — 0 named types across 109 operations.
+- No 200 response schema and no 200 response example on any operation.
+- Request-body examples use empty-string placeholder values, so required-vs-optional and value format
+  must be read from the prose field descriptions.
+- Parameter examples are type placeholders rather than realistic values.

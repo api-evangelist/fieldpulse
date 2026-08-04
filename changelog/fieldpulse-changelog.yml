@@ -1,0 +1,90 @@
+generated: '2026-08-04'
+method: searched
+source: https://help.fieldpulse.com/changelog
+docs: https://help.fieldpulse.com/changelog
+description: 'FieldPulse publishes a dated "What''s New" changelog on its documentation
+  host, cadenced monthly and running back to January 2023 — 43 dated entries in total.
+  It is a product changelog, not an API changelog: entries describe platform and
+  add-on features (Engage VoIP, Pricebook, Customer Portal, Offline Mode, integrations)
+  and do not enumerate REST endpoint additions, deprecations, or breaking changes.
+  No separate API-versioned release notes were found.'
+scope: product
+scheme: calendar-month
+cadence: monthly
+current_version: '1.0.0'
+current_version_source: openapi/fieldpulse-api-openapi-original.json info.version
+api_changelog:
+  published: false
+  note: No endpoint-level changelog, no dated API release notes, no breaking-change
+    log. Consumers of the Open API have no published signal for when operations,
+    parameters, or response shapes change.
+history:
+  entries_total: 43
+  earliest: '2023-01'
+  latest: '2026-07'
+entries:
+- period: '2026-07'
+  label: July 2026
+  features: 4
+  breaking: []
+  highlights:
+  - Recurring Billing report centralizing every parent recurring invoice
+  - Customer Portal visibility toggles moved into Company Settings
+  - Technician skill tags surfaced on user records, job assignment, and dispatch
+  - Thumbtack lead integration creating or linking customers and jobs
+  - Suppliers tab in Company Settings for purchase-order suppliers
+  - Bill to Parent — child customer billing inherited from a parent account
+  tags: [Commission Permissions, Customer Portal Comments on Mobile, Pricebook, Email
+      & SMS Templates]
+- period: '2026-06'
+  label: June 2026
+  features: 6
+  breaking: []
+  tags: [Multiple Availability Windows, Time-Relative Date & Status Filters in Reporting,
+    Change Main Location on Mobile]
+- period: '2026-05'
+  label: May 2026
+  features: 8
+  breaking: []
+  tags: [Payments, Sales, Scheduling, Custom Forms, Integrations]
+- period: '2026-04'
+  label: April 2026
+  features: 5
+  breaking: []
+  tags: [Customer Portal, Integrations, Offline Mode, Custom Forms, Reporting]
+- period: '2026-03'
+  label: March 2026
+  features: 5
+  breaking: []
+  tags: [Scheduling, Reporting, Sales, Integrations]
+- period: '2026-02'
+  label: February 2026
+  features: 4
+  breaking: []
+  tags: [Integrations, Custom Forms, Offline Mode]
+- period: '2026-01'
+  label: January 2026
+  features: 3
+  breaking: []
+  tags: [Integrations, Customer Portal, Inventory]
+- period: '2025-12'
+  label: December 2025
+  features: 4
+  breaking: []
+  tags: [Purchase Orders, Commission, Customer Communications]
+- period: '2025-11'
+  label: November 2025
+  features: 7
+  breaking: []
+  tags: [QuickBooks Reporting, Custom Field Filters, Maintenance Agreements]
+- period: '2025-10'
+  label: October 2025
+  features: 6
+  breaking: []
+  tags: [Supplier Chat, Job Costing, Xero Integration]
+related:
+  roadmap: https://help.fieldpulse.com/what-s-new/fieldpulse-feature-roadmap
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://help.fieldpulse.com/changelog/index.md
+  http_status: 200

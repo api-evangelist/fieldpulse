@@ -1,0 +1,44 @@
+generated: '2026-08-04'
+method: generated
+description: 'Agent Skills for the FieldPulse Open API. One skill is provider-published
+  — FieldPulse serves it from its own documentation host at
+  /.well-known/agent-skills/fieldpulse/skill.md and advertises it in its A2A agent
+  card — and is saved verbatim. The other three are API Evangelist generated skills,
+  one per marquee flow, with every step grounded in an operationId verified present
+  in openapi/fieldpulse-api-openapi-original.json.'
+skills:
+- file: fieldpulse-fieldpulse-skill.md
+  name: Fieldpulse
+  method: searched
+  source: https://help.fieldpulse.com/.well-known/agent-skills/fieldpulse/skill.md
+  official: true
+  scope: whole-product
+  description: Provider-published skill covering field service operations, scheduling,
+    estimates and invoices, payments, customers, workflows, accounting integrations,
+    and the REST API. Saved verbatim; also exposed as an MCP resource at
+    mintlify://skills/fieldpulse.
+- file: fieldpulse-onboard-customer-and-schedule-job.md
+  name: Onboard a FieldPulse customer and schedule a job
+  method: generated
+  api: openapi/fieldpulse-api-openapi-original.json
+  operations: [getVersion, getLeadSource, getPipelineStatus, postCustomers, postCustomersByCustomerIdCustomerContact,
+    postLocations, getJobsStatusWorkflows, getJobsStatusWorkflowStatuses, postJobs,
+    getJobsByJobId, putJobsByJobId]
+- file: fieldpulse-estimate-to-invoice-to-payment.md
+  name: Take a FieldPulse estimate through to invoice and payment
+  method: generated
+  api: openapi/fieldpulse-api-openapi-original.json
+  operations: [getCustomers, getItems, postEstimates, getEstimatesByEstimateId, getEstimatesQbClasses,
+    postInvoices, getInvoicesByInvoiceId, putInvoicesByInvoiceIdPriceUpdate, postPayments,
+    getPayments]
+- file: fieldpulse-materials-and-purchase-orders.md
+  name: Stage FieldPulse materials and raise a purchase order
+  method: generated
+  api: openapi/fieldpulse-api-openapi-original.json
+  operations: [getItems, getVendors, getVendorsById, postMaterialList, getMaterialLists,
+    postMaterialListsByIdItemConnect, postMaterialListsByIdConnect, postMaterialListsByIdDisconnect,
+    postPurchaseOrders, getPurchaseOrdersById, putPurchaseOrdersById]
+grounding:
+  verified: true
+  note: Every operationId listed above was grepped against the published OpenAPI
+    before the skill was written. No operation is invented.

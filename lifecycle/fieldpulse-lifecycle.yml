@@ -1,0 +1,66 @@
+generated: '2026-08-04'
+method: searched
+source: https://help.fieldpulse.com/api-reference/getting-started
+description: Versioning, deprecation, SLA, and status posture for the FieldPulse Open
+  API, from the published documentation plus what the OpenAPI declares.
+versioning:
+  scheme: none
+  current: '1.0.0'
+  in_path: false
+  in_header: false
+  date_pinned: false
+  base_url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  runtime_version_endpoint:
+    operation: getVersion
+    path: /version
+    method: GET
+  note: The base URL is an unversioned AWS API Gateway stage. There is no version
+    segment, version header, or date pinning, so there is no way for a client to pin
+    to a known-good contract. A GET /version operation reports the running version
+    at call time.
+deprecation:
+  policy_published: false
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: No deprecation policy, no notice window, and no RFC 8594 Sunset/Deprecation
+    header support is documented. No operation in the OpenAPI carries deprecated;
+    true.
+deprecated_operations: []
+sla:
+  published: false
+  url: null
+  uptime_target: null
+  note: No public SLA or uptime commitment was found. Pricing is quote-based, so any
+    availability commitment would sit in a negotiated Enterprise agreement.
+status_page:
+  url: https://status.fieldpulse.com/
+  provider: Statuspage (Atlassian)
+  http_status: 200
+  components_reported: true
+  historical_uptime_reported: true
+support:
+  channels:
+  - {type: email, value: support@fieldpulse.com}
+  - {type: chat, value: In-app chat widget}
+  - {type: help-center, value: 'https://help.fieldpulse.com/'}
+  api_key_issuance: Manual — API keys are requested from support, not self-serve.
+roadmap:
+  url: https://help.fieldpulse.com/what-s-new/fieldpulse-feature-roadmap
+  scope: product
+changelog:
+  url: https://help.fieldpulse.com/changelog
+  scope: product
+  see: changelog/fieldpulse-changelog.yml
+gaps:
+- No API versioning scheme — an unversioned stage URL with no pinning mechanism.
+- No deprecation policy and no Sunset/Deprecation header support.
+- No published SLA.
+- The changelog is product-scoped; API contract changes are not announced.
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - {url: 'https://status.fieldpulse.com/', http_status: 200}
+  - {url: 'https://help.fieldpulse.com/what-s-new/fieldpulse-feature-roadmap', http_status: 200}
+  - {url: 'https://help.fieldpulse.com/api-reference/getting-started.md', http_status: 200}

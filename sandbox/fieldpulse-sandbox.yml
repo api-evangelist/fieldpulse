@@ -1,0 +1,46 @@
+generated: '2026-08-04'
+method: searched
+source: https://help.fieldpulse.com/api-reference/overview
+description: 'FieldPulse ships an interactive API playground in its documentation —
+  every api-reference page renders a live request console with the operation''s
+  parameters and body — but there is NO sandbox environment, no test mode, and no
+  test-vs-live key separation. The provider says so itself in the OpenAPI description:
+  "The API Playground below makes live requests against your production data. Use
+  caution when testing write operations (POST, PUT, DELETE)."'
+console:
+  present: true
+  type: docs-playground
+  platform: Mintlify
+  url: https://help.fieldpulse.com/api-reference/overview
+  authenticated: true
+  auth_input: x-api-key
+  targets: production
+  warning: 'Verbatim from the published OpenAPI info.description: "The API Playground
+    below makes live requests against your production data. Use caution when testing
+    write operations (POST, PUT, DELETE)."'
+sandbox:
+  present: false
+  test_mode: false
+  key_prefixes:
+    test: null
+    live: null
+  note: There is no separate sandbox host, no test-mode key, and no way to exercise
+    write operations without mutating a real FieldPulse account. The single documented
+    base URL (https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage) is
+    production despite the "/stage" path segment.
+test_values:
+  published: false
+  note: No magic test identifiers, test card numbers, fixture accounts, or trigger
+    tooling are published. Nothing is invented here.
+time_simulation:
+  present: false
+recommended_practice:
+- Provision a dedicated non-production FieldPulse account if write operations must
+  be exercised — the API itself offers no isolation.
+- Exercise read operations (GET) first; the playground is safe for those.
+- Because there is no idempotency key, a retried POST in the playground creates a
+  duplicate record.
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://help.fieldpulse.com/openapi/fieldpulse-api.json
+  http_status: 200

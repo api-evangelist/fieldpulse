@@ -1,0 +1,32 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.fieldpulse.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 19 23:45:57 2026 GMT
+  hsts: null
+- host: help.fieldpulse.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 17 09:37:37 2026 GMT
+  hsts: null
+- host: ywe3crmpll.execute-api.us-east-2.amazonaws.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan 31 23:59:59 2027 GMT
+  hsts: null
+domains:
+- domain: fieldpulse.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: amazonaws.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

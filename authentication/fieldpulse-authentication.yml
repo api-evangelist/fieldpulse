@@ -1,0 +1,67 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/fieldpulse-api-openapi-original.json
+docs: https://help.fieldpulse.com/api-reference/getting-started
+description: 'Authentication profile for the FieldPulse Open API. Single-factor API
+  key, sent in a header, issued manually by FieldPulse Support. There is no OAuth,
+  no OpenID Connect, no mutual TLS, and no scope or permission model on the key — a
+  FieldPulse API token is all-or-nothing across all 109 operations.'
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  oauth2_flows: []
+  scopes: 0
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  applied: global
+  applied_note: 'The spec declares a root-level `security` requirement referencing
+    apiKeyAuth with an empty scope list, so the scheme applies to every one of the
+    109 operations.'
+  sources:
+  - openapi/fieldpulse-api-openapi-original.json
+issuance:
+  self_serve: false
+  channel:
+  - {type: email, value: support@fieldpulse.com}
+  - {type: chat, value: In-app chat widget}
+  process: Contact FieldPulse to register and activate an API token. There is no
+    developer-portal key-generation flow and no public sign-up for API access.
+  plan_gate: Enterprise
+  plan_gate_source: https://www.fieldpulse.com/pricing
+key_management:
+  rotation_documented: false
+  revocation_documented: false
+  expiry_documented: false
+  multiple_keys_per_account: unknown
+  scoping: none
+  note: No key rotation, revocation, expiry, or least-privilege scoping is documented.
+    A leaked FieldPulse API token grants full read and write across every resource
+    until Support revokes it manually.
+failure_modes:
+- {status: 401, meaning: Missing or invalid x-api-key}
+- {status: 422, meaning: 'Authentication validation error (documented in Getting Started;
+    not declared on any operation in the spec)'}
+- {status: 403, meaning: Returned by the AWS API Gateway stage for any request that
+    does not present a recognised key, including /.well-known/ paths}
+end_user_auth:
+  present: false
+  note: The API authenticates an integration, not an end user. There is no delegated
+    authorization, no per-user token, and no consent flow — an integration acts with
+    full account authority. Two-factor authentication exists for the FieldPulse web
+    and mobile applications but has no API equivalent.
+discovery_probes:
+- {url: 'https://help.fieldpulse.com/.well-known/openid-configuration', http_status: 404}
+- {url: 'https://help.fieldpulse.com/.well-known/oauth-authorization-server', http_status: 404}
+- {url: 'https://help.fieldpulse.com/.well-known/oauth-protected-resource', http_status: 404}
+- {url: 'https://www.fieldpulse.com/.well-known/openid-configuration', http_status: 404}
+related:
+  conventions: conventions/fieldpulse-conventions.yml
+  scopes: null
+  scopes_note: No OAuth scope surface exists, so no scopes/ artifact is emitted.
+x-evidence:
+  fetched: '2026-08-04'

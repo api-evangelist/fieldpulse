@@ -1,0 +1,131 @@
+generated: '2026-08-04'
+method: searched
+source: https://help.fieldpulse.com/api-reference/getting-started
+derived_from: openapi/fieldpulse-api-openapi-original.json
+docs: https://help.fieldpulse.com/api-reference/getting-started
+description: Cross-cutting request/response semantics for the FieldPulse Open API,
+  taken from the published Getting Started page and confirmed against the OpenAPI
+  definition's parameter set.
+authentication:
+  style: api-key
+  location: header
+  parameter: x-api-key
+  issuance: Contact support@fieldpulse.com or in-app chat to register and activate
+    an API token. Keys are not self-serve.
+  plan_gate: Open API access is listed as an Enterprise-plan capability on the pricing
+    page.
+  scopes: none
+  see: authentication/fieldpulse-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: No idempotency key header or parameter is documented, and no `Idempotency-Key`
+    parameter appears anywhere in the OpenAPI. Repeating a POST creates a duplicate
+    record. This is a real gap for agent and retry-oriented clients.
+pagination:
+  style: page-number
+  parameters:
+  - name: page
+    in: query
+    description: Page number. Starts from 1, defaults to 1.
+    operations: 21
+  - name: limit
+    in: query
+    description: Defaults to 20 items per page, maximum 100 items allowed.
+    operations: 30
+  - name: calculate_count
+    in: query
+    description: true or false. If true, the response also includes the total count.
+      Total count is opt-in, not returned by default.
+    operations: 26
+  response_fields:
+    documented: false
+    note: The OpenAPI declares `application/json` for 200 responses with no schema,
+      so the response envelope and pagination metadata field names are not machine
+      readable.
+filtering:
+  parameters:
+  - name: filter
+    in: query
+    description: Array of attribute, operator, and value parts.
+    operations: 29
+  - name: search
+    in: query
+    description: Free-text search string.
+    operations: 11
+  - name: asn
+    in: query
+    description: Array or object containing a team_id index, an assigned_members index
+      containing an array of member ids, or both — assignment-based filtering.
+    operations: 8
+  - name: status
+    in: query
+    operations: 2
+  - name: active
+    in: query
+    operations: 3
+sorting:
+  parameters:
+  - name: sort
+    in: query
+    description: Array of attribute and order values.
+    operations: 28
+  - name: sort_by
+    in: query
+    description: Attribute to sort on; allowed values are listed per operation.
+    operations: 7
+  - name: sort_dir
+    in: query
+    description: 'Allowed values: asc, desc'
+    operations: 7
+  note: Two sorting idioms coexist — the array-shaped `sort` parameter on most collections
+    and the `sort_by`/`sort_dir` pair on others. They are not interchangeable.
+field_expansion:
+  supported: true
+  parameter: rel
+  description: Array consisting of indices with the desired relation to include. Used
+    on 27 operations, with typed variants such as rel[public_link] and rel[public_links].
+  note: This is the relationship-expansion mechanism; there is no sparse-fieldset
+    parameter.
+metadata:
+  custom_fields: true
+  note: A first-class Custom Fields resource (/custom-fields) plus a Tags resource
+    (/tags) provide the extensibility surface. There is no free-form `metadata` map.
+request_id_tracing:
+  supported: false
+  note: No request-id / correlation-id header is documented or declared in the spec.
+versioning:
+  scheme: none-in-path
+  current: '1.0.0'
+  note: The base URL is an unversioned AWS API Gateway stage
+    (https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage). There is no version
+    segment, no version header, and no date-pinning. A GET /version operation
+    (getVersion) reports the running version. The OpenAPI info.version is 1.0.0.
+  see: lifecycle/fieldpulse-lifecycle.yml
+error_envelope:
+  media_type: application/json
+  shape: '{"message": "<string>"}'
+  rfc9457: false
+  see: errors/fieldpulse-problem-types.yml
+rate_limit_signaling:
+  limit: 50 requests per second
+  additional: A separate monthly request quota is documented, also surfaced as 429.
+  status_on_exceed: 429
+  headers_on_exceed: [RateLimit-Reset]
+  header_semantics: Epoch time at which the caller's rate limit resets.
+  proactive_headers: none
+  note: FieldPulse returns RateLimit-Reset only on a 429. There are no RateLimit-Limit
+    / RateLimit-Remaining headers on successful responses, so a client cannot pace
+    itself without first being throttled.
+  see: rate-limits/fieldpulse-rate-limits.yml
+http_methods:
+  GET: retrieve resources
+  POST: create resources
+  PUT: update resources
+  DELETE: delete resources
+  PATCH: not used
+response_format: JSON on every operation.
+validation:
+  note: All POST and PUT requests have data validation rules stated in the request
+    body descriptions. "optional" means the data is not required; "nullable" means
+    the value can be null.

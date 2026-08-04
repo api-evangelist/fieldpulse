@@ -1,0 +1,42 @@
+generated: '2026-08-04'
+method: searched
+source: https://help.fieldpulse.com/api-reference/getting-started
+docs: https://help.fieldpulse.com/api-reference/getting-started
+description: Published rate limits for the FieldPulse Open API.
+rate_limits:
+- api: FieldPulse API
+  name: Per-second throttle
+  limit_count: 50
+  limit_interval: second
+  scope: api-key
+  status_on_exceed: 429
+  response_headers: [RateLimit-Reset]
+  header_semantics: Epoch time at which the caller's rate limit will reset.
+  documented: true
+- api: FieldPulse API
+  name: Monthly request quota
+  limit_count: null
+  limit_interval: month
+  scope: account
+  status_on_exceed: 429
+  documented: true
+  note: 'The Getting Started page distinguishes two 429 conditions — "429 Quota exceeded:
+    You have reached your monthly request quota" and "429 Throttled: You have reached
+    your per second rate limit". The monthly quota value is not published; it is
+    presumably set per contract.'
+pagination_limits:
+- parameter: limit
+  default: 20
+  maximum: 100
+  applies_to: collection endpoints
+escalation: If you are exceeding the rate limit regularly, email FieldPulse to discuss
+  alternative options.
+gaps:
+- No proactive RateLimit-Limit / RateLimit-Remaining headers on successful responses
+  — a client only learns its budget after being throttled.
+- The monthly quota is documented but its value is not published.
+- Neither 429 condition is declared on any of the 109 OpenAPI operations.
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://help.fieldpulse.com/api-reference/getting-started.md
+  http_status: 200

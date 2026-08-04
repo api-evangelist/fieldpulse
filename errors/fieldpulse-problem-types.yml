@@ -1,0 +1,65 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/fieldpulse-api-openapi-original.json + https://help.fieldpulse.com/api-reference/getting-started
+format: custom
+envelope:
+  media_type: application/json
+  shape: '{"message": "<human readable string>"}'
+  note: FieldPulse does not use RFC 9457 application/problem+json. Every error response
+    in the OpenAPI carries a single `message` string and no machine-readable error
+    code, type URI, or field-level detail. There is no documented error-code registry.
+docs: https://help.fieldpulse.com/api-reference/getting-started
+problems:
+- status: 400
+  title: Bad Request
+  description: The request was unacceptable, often due to a missing required parameter
+    or a wrong parameter. POST and PUT bodies are validated against the rules stated
+    in each request body description (optional / nullable).
+  example: {message: Bad Request}
+  operations_declaring: 40
+- status: 401
+  title: Unauthorized
+  description: Missing or invalid authentication. The x-api-key header was absent,
+    malformed, or not recognized.
+  example: {message: Unauthorized}
+  operations_declaring: 108
+- status: 404
+  title: Not Found
+  description: Non-existing resource, or an unrecognized request URL.
+  example: {message: Request URL not found}
+  operations_declaring: 108
+- status: 500
+  title: Internal Server Error
+  description: Server error.
+  example: {message: Internal Server Error}
+  operations_declaring: 106
+documented_but_not_in_spec:
+- status: 201
+  title: Created
+  description: Documented in Getting Started as a success code; the OpenAPI declares
+    only 200 for creates.
+- status: 202
+  title: Accepted
+  description: Documented in Getting Started as "Authentication is passed".
+- status: 422
+  title: Unprocessable Entity
+  description: Authentication validation error. Documented in Getting Started but not
+    declared on any operation in the OpenAPI.
+- status: 429
+  title: Quota exceeded / Throttled
+  description: Two distinct 429 conditions are documented — a monthly request quota
+    and the 50 requests-per-second rate limit. Throttled responses carry a RateLimit-Reset
+    header with the epoch time at which the limit resets. Not declared on any operation
+    in the OpenAPI.
+  headers: [RateLimit-Reset]
+gaps:
+- No RFC 9457 problem+json representation.
+- No stable machine-readable error codes — only an English `message` string, so agents
+  and clients must string-match or branch on HTTP status alone.
+- 422 and 429 are documented in prose but absent from all 109 OpenAPI operations, so
+  a generated client will not model the two most operationally important failure modes.
+coverage:
+  operations_total: 109
+  operations_with_at_least_one_4xx: 108
+  operations_with_400: 40
+  operations_with_500: 106

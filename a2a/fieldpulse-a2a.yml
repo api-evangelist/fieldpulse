@@ -1,0 +1,69 @@
+generated: '2026-08-04'
+method: probed
+source: https://help.fieldpulse.com/.well-known/agent-card.json
+description: 'A2A Agent Card observed at /.well-known/agent-card.json on help.fieldpulse.com.
+  Grade is measured against the A2A 1.0.0 AgentCard object: ''conformant'' passes every
+  structural hard check, ''near-conformant'' is correctly shaped but omits optional
+  fields, ''flavored'' fails a hard check and is an agent card in spirit rather than
+  in schema. Provider-published by construction — served from the provider''s own
+  documentation host; nothing here is derived or generated.'
+discovery:
+  path: /.well-known/agent-card.json
+  canonical: true
+  host: help.fieldpulse.com
+conformance:
+  spec: A2A 1.0.0
+  grade: conformant
+  protocol_version: '0.3'
+  preferred_transport: HTTP+JSON
+  hard_checks:
+    capabilities_is_object: true
+    protocol_version_present: true
+    skills_is_array: true
+  deviations:
+  - supportedInterfaces-instead-of-additionalInterfaces
+  notes: 'All three hard A2A 1.0.0 checks pass and every optional field (preferredTransport,
+    defaultInputModes, defaultOutputModes) is present. The card declares interfaces
+    under the non-canonical key `supportedInterfaces` rather than `additionalInterfaces`,
+    recorded as a deviation. The card is published by the Mintlify-hosted documentation
+    site (help.fieldpulse.com) rather than by the FieldPulse API host, and the single
+    skill points at a documentation-retrieval skill file rather than an executable
+    A2A endpoint. No card is served from www.fieldpulse.com or from the API host.'
+card:
+  name: FieldPulse Docs
+  url: https://help.fieldpulse.com/
+  version: 1.0.0
+  description: Product documentation for the FieldPulse field service management platform.
+  provider: FieldPulse Docs
+  documentation_url: https://help.fieldpulse.com/
+  capabilities:
+    streaming: false
+    pushNotifications: false
+  default_input_modes:
+  - text/plain
+  default_output_modes:
+  - text/plain
+  skills: 1
+  skill_ids:
+  - fieldpulse
+  file: fieldpulse-agent-card.json
+related:
+  agent_skill: https://help.fieldpulse.com/.well-known/agent-skills/fieldpulse/skill.md
+  mcp_manifest: https://help.fieldpulse.com/.well-known/mcp.json
+  mcp_endpoint: https://help.fieldpulse.com/mcp
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://help.fieldpulse.com/.well-known/agent-card.json
+  http_status: 200
+  content_type: application/json
+  bytes: 1044
+  hosts_probed:
+  - {host: help.fieldpulse.com, path: /.well-known/agent-card.json, status: 200}
+  - {host: help.fieldpulse.com, path: /.well-known/agent.json, status: 404}
+  - {host: www.fieldpulse.com, path: /.well-known/agent-card.json, status: 404}
+  - {host: www.fieldpulse.com, path: /.well-known/agent.json, status: 404}
+  - {host: ywe3crmpll.execute-api.us-east-2.amazonaws.com, path: /.well-known/agent-card.json,
+    status: 403}
+  - {host: ywe3crmpll.execute-api.us-east-2.amazonaws.com, path: /.well-known/agent.json,
+    status: 403}
+  note: Verbatim body saved alongside this manifest. No field inferred.

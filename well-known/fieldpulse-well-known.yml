@@ -1,0 +1,84 @@
+generated: '2026-08-04'
+method: probed
+description: 'Observed /.well-known/ discovery surface across every FieldPulse host
+  in this profile: the documentation host (help.fieldpulse.com, Mintlify-hosted),
+  the marketing host (www.fieldpulse.com, Vercel-hosted), and the API host (the AWS
+  API Gateway stage that serves the FieldPulse Open API). Only the documentation host
+  publishes anything; the marketing host answers 404 for every path and the API host
+  answers 403 Forbidden for every unauthenticated path including /.well-known/.'
+hosts:
+- host: https://help.fieldpulse.com
+  role: documentation
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json
+    file: ../a2a/fieldpulse-agent-card.json
+    note: A2A Agent Card — saved under a2a/ and graded in a2a/fieldpulse-a2a.yml
+  - path: /.well-known/mcp.json
+    status: 200
+    content_type: application/json
+    file: fieldpulse-mcp.json
+    note: MCP server manifest — anonymous HTTP transport
+  - path: /.well-known/agent-skills/fieldpulse/skill.md
+    status: 200
+    content_type: text/markdown
+    file: ../skills/fieldpulse-fieldpulse-skill.md
+    note: Provider-published Agent Skill, saved verbatim under skills/
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.fieldpulse.com
+  role: marketing
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+- host: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com
+  role: api
+  note: AWS API Gateway stage. Every unauthenticated request returns 403 Forbidden,
+    including /.well-known/ paths, so no discovery surface is observable anonymously.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+security_txt:
+  published: false
+  note: No RFC 9116 security.txt served on any FieldPulse host as of 2026-08-04.
+x-evidence:
+  fetched: '2026-08-04'

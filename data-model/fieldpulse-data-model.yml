@@ -1,0 +1,143 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/fieldpulse-api-openapi-original.json
+description: 'Entity-relationship graph for the FieldPulse Open API, derived from the
+  path structure and from the id-reference fields that appear in the request-body
+  examples of the POST/PUT operations. The OpenAPI declares zero components.schemas
+  — every request body is an untyped object carrying only an `example` map, and every
+  200 response is `application/json` with no schema at all — so this graph is
+  reconstructed from field names and nesting, not from named schema $refs. Relationship
+  cardinality is inferred from singular vs. plural id fields and from sub-resource
+  paths; confidence is recorded per relationship.'
+caveats:
+- components.schemas is empty (0 schemas). No named types, no $ref graph, no response
+  shapes.
+- Field-level types are absent; the example maps carry empty-string placeholder values.
+- Nothing here is invented — every entity and every `via` field name appears verbatim
+  in the published spec.
+id_convention:
+  style: integer surrogate keys
+  reference_field_pattern: <entity>_id / <entity>_ids
+  prefixes: none
+  note: FieldPulse uses plain numeric ids with no type prefix, so an id is not
+    self-describing.
+entities:
+- name: Customer
+  path: /customers
+  operations: [getCustomers, getCustomersByCustomerId, postCustomers, putCustomersByCustomerId,
+    deleteCustomersByCustomerId]
+- name: CustomerContact
+  path: /customers/{customerId}/customer-contact
+  parent: Customer
+  operations: [getCustomersByCustomerIdCustomerContact, getCustomersByCustomerIdCustomerContactByContactId,
+    postCustomersByCustomerIdCustomerContact, putCustomersByCustomerIdCustomerContactByContactId,
+    deleteCustomersByCustomerIdCustomerContactByContactId]
+- name: Location
+  path: /locations
+- name: Job
+  path: /jobs
+- name: JobStatusWorkflow
+  path: /jobs/status-workflows
+- name: Project
+  path: /projects
+- name: Subtask
+  path: /subtasks
+- name: Estimate
+  path: /estimates
+- name: Invoice
+  path: /invoices
+- name: Payment
+  path: /payments
+- name: PurchaseOrder
+  path: /purchase-orders
+- name: Vendor
+  path: /vendors
+- name: Item
+  path: /items
+- name: MaterialList
+  path: /material-lists
+- name: Asset
+  path: /assets
+- name: AssetCategory
+  path: /assets-category
+- name: Contract
+  path: /contracts
+- name: Comment
+  path: /comments
+- name: CustomField
+  path: /custom-fields
+- name: Tag
+  path: /tags
+- name: Team
+  path: /teams
+- name: User
+  path: /users
+- name: Timesheet
+  path: /timesheets
+- name: LeadSource
+  path: /lead-source
+- name: PipelineStatus
+  path: /pipeline-status
+- name: CompanyProfile
+  path: /company-profile
+relationships:
+- {from: Customer, to: CustomerContact, kind: has_many, via: 'path: /customers/{customerId}/customer-contact',
+  confidence: high}
+- {from: Customer, to: LeadSource, kind: belongs_to, via: lead_source_id, confidence: high}
+- {from: Customer, to: PipelineStatus, kind: belongs_to, via: pipeline_status_id, confidence: high}
+- {from: Location, to: CustomerContact, kind: belongs_to, via: primary_customer_contact_id,
+  confidence: high}
+- {from: Location, to: Customer, kind: belongs_to, via: object_id, confidence: low,
+  note: 'polymorphic — object_id is paired with an object_type query parameter'}
+- {from: Asset, to: AssetCategory, kind: belongs_to, via: asset_category_id, confidence: high}
+- {from: Asset, to: Customer, kind: belongs_to, via: customer_id, confidence: high}
+- {from: Asset, to: Job, kind: has_many, via: job_ids, confidence: high}
+- {from: Asset, to: MaintenanceAgreement, kind: belongs_to, via: maintenance_agreement_id,
+  confidence: medium, note: 'maintenance agreements are not exposed as a REST resource
+    in this spec'}
+- {from: Project, to: Customer, kind: belongs_to, via: customer_id, confidence: high}
+- {from: Project, to: Location, kind: belongs_to, via: location_id, confidence: high}
+- {from: Project, to: JobStatusWorkflow, kind: belongs_to, via: status_workflow_id,
+  confidence: high}
+- {from: Subtask, to: Job, kind: belongs_to, via: job_id, confidence: high}
+- {from: Subtask, to: Project, kind: belongs_to, via: project_id, confidence: high}
+- {from: Subtask, to: Customer, kind: belongs_to, via: customer_id, confidence: high}
+- {from: Subtask, to: RecurringJob, kind: belongs_to, via: recurring_job_id, confidence: medium,
+  note: 'recurring jobs are not exposed as a REST resource in this spec'}
+- {from: Timesheet, to: Job, kind: belongs_to, via: job_id, confidence: high}
+- {from: Timesheet, to: Subtask, kind: belongs_to, via: subtask_id, confidence: high}
+- {from: Timesheet, to: User, kind: belongs_to, via: user_id, confidence: high}
+- {from: Payment, to: Invoice, kind: belongs_to, via: invoice_id, confidence: high}
+- {from: Payment, to: PaymentMethod, kind: belongs_to, via: payment_method_id, confidence: medium,
+  note: 'payment methods are not exposed as a REST resource in this spec'}
+- {from: PurchaseOrder, to: Vendor, kind: belongs_to, via: vendor_id, confidence: high}
+- {from: PurchaseOrder, to: Customer, kind: belongs_to, via: customer_id, confidence: high}
+- {from: PurchaseOrder, to: Job, kind: belongs_to, via: job_id, confidence: high}
+- {from: PurchaseOrder, to: Project, kind: belongs_to, via: project_id, confidence: high}
+- {from: PurchaseOrder, to: Invoice, kind: belongs_to, via: invoice_id, confidence: high}
+- {from: PurchaseOrder, to: User, kind: belongs_to, via: assigned_id, confidence: medium}
+- {from: Item, to: Vendor, kind: belongs_to, via: vendor_id, confidence: high}
+- {from: MaterialList, to: Item, kind: has_many, via: item_ids, confidence: high}
+- {from: MaterialList, to: Job, kind: belongs_to, via: 'from_entity_id / to_entity_id
+    (postMaterialListsByIdConnect)', confidence: low, note: polymorphic connect/disconnect
+    endpoints}
+- {from: Comment, to: Job, kind: belongs_to, via: commentable_id, confidence: low,
+  note: 'polymorphic — commentable_id targets any commentable resource'}
+- {from: CustomField, to: FieldWidget, kind: belongs_to, via: field_widget_id, confidence: medium}
+external_system_references:
+  quickbooks:
+    fields: [qbo_id, qbo_asset_account_id, qbo_expense_account_id, qbo_income_account_id,
+      qbo_purchase_tax_code_id, qbo_sales_tax_code_id]
+    endpoints: [getJobsQbClasses, getEstimatesQbClasses, getInvoicesQbClasses]
+    note: QuickBooks Online identifiers are carried inline on Item records, and three
+      qb-classes endpoints expose QuickBooks class lists.
+  square:
+    fields: [square_transaction_id]
+  supplier:
+    fields: [supplier_item_id, external_id, pickup_branch_id]
+expansion:
+  parameter: rel
+  note: Relationships are followed at read time with the `rel` query parameter (an
+    array of relation indices) on 27 operations. The set of valid relation names is
+    not enumerated in the spec.
+  see: conventions/fieldpulse-conventions.yml

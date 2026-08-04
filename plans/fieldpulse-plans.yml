@@ -1,0 +1,68 @@
+generated: '2026-08-04'
+method: searched
+source: https://www.fieldpulse.com/pricing
+docs: https://www.fieldpulse.com/pricing
+description: 'FieldPulse publishes a three-tier plan structure with named feature
+  sets, but no prices. Pricing is seat-based and quote-only — the site directs buyers
+  to request a custom quote or book a demo. API access ("Open API") is gated to the
+  top tier. No dollar figures are recorded here because FieldPulse publishes none.'
+model: seat-based
+pricing_published: false
+currency: USD
+free_tier: false
+free_trial:
+  published: false
+  note: No free trial is advertised on the pricing page; the call to action is "Book
+    a Demo".
+seat_types:
+- name: Full-access seat
+  description: Complete platform functionality, web and mobile.
+- name: Field-only seat
+  description: Mobile-app-only access for field staff, at a lower cost than a full
+    seat.
+plans:
+- name: Essentials
+  price: null
+  price_note: quote-only
+  includes:
+  - Customer management
+  - Scheduling and dispatching
+  - Work order management
+  - Estimates and invoices
+  - Mobile app
+  - Workflow automation
+  - Project management
+  - QuickBooks sync
+  api_access: false
+- name: Professional
+  price: null
+  price_note: quote-only
+  includes:
+  - Everything in Essentials
+  - Advanced capabilities for expanding businesses
+  api_access: false
+- name: Enterprise
+  price: null
+  price_note: quote-only
+  includes:
+  - Everything in Professional
+  - Multi-location management
+  - Open API access
+  api_access: true
+  api_note: API access is an Enterprise-tier capability. Keys are still issued manually
+    by FieldPulse Support rather than self-serve.
+add_ons:
+- {name: Engage, description: VoIP phone system}
+- {name: Operator AI, description: AI assistant}
+- {name: Pricebook}
+- {name: FieldPulse Payments, description: Integrated payment processing}
+- {name: Fleet Tracking}
+- {name: Custom Forms}
+contact:
+  sales_phone: '+1 (817) 635-2218'
+  demo: https://www.fieldpulse.com/book-demo
+  login: https://webapp.fieldpulse.com/auth/login
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://www.fieldpulse.com/pricing
+  http_status: 200

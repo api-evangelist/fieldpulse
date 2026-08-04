@@ -1,0 +1,67 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the FieldPulse API
+  version: 1.0.0
+extends: openapi/fieldpulse-api-openapi-original.json
+x-generated: '2026-08-04'
+x-method: generated
+x-source: openapi/fieldpulse-api-openapi-original.json
+x-description: >-
+  Non-destructive Overlay 1.0.0 capturing the API Evangelist enrichment of the
+  FieldPulse Open API. The harvested specification is never mutated; everything
+  here is additive metadata plus the operational semantics FieldPulse documents in
+  prose but does not declare in the machine-readable contract (the 422 and 429
+  responses and the RateLimit-Reset header).
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/providers/fieldpulse/
+    x-apievangelist-enriched: '2026-08-04'
+    x-api-evangelist-artifacts:
+      authentication: authentication/fieldpulse-authentication.yml
+      conventions: conventions/fieldpulse-conventions.yml
+      errors: errors/fieldpulse-problem-types.yml
+      lifecycle: lifecycle/fieldpulse-lifecycle.yml
+      rate_limits: rate-limits/fieldpulse-rate-limits.yml
+      webhooks: asyncapi/fieldpulse-events-webhooks.yml
+      data_model: data-model/fieldpulse-data-model.yml
+      agentic_access: agentic-access/fieldpulse-agentic-access.yml
+    x-contract-gaps:
+    - components.schemas is empty — no named types and no response schemas on any of
+      the 109 operations
+    - no idempotency key on any write operation
+    - no API versioning scheme and no deprecation policy
+    - 422 and 429 documented in prose but absent from every operation
+- target: $.info
+  update:
+    x-rate-limit:
+      requests_per_second: 50
+      status_on_exceed: 429
+      reset_header: RateLimit-Reset
+      docs: https://help.fieldpulse.com/api-reference/getting-started
+- target: $.info
+  update:
+    x-webhooks:
+      documented: true
+      docs: https://help.fieldpulse.com/api-reference/webhooks
+      resources: [Jobs, Estimates, Invoices]
+      self_serve: false
+      signed: false
+- target: $.servers
+  update:
+    x-environment: production
+    x-note: The "/stage" path segment is an AWS API Gateway stage name, not a test
+      environment. There is no sandbox.
+- target: $.components.securitySchemes.apiKeyAuth
+  update:
+    description: >-
+      API token issued manually by FieldPulse. Request one from support@fieldpulse.com
+      or via in-app chat. Open API access is gated to the Enterprise plan. The token
+      is sent on every request in the x-api-key header. There are no scopes and no
+      per-key permission model.
+    x-issuance: manual
+    x-self-serve: false
+    x-plan-gate: Enterprise
+- target: $.tags
+  update:
+    x-note: 25 tags declared; 15 of them carry no description in the published spec.

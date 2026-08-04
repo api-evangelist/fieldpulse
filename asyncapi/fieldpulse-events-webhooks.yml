@@ -1,0 +1,115 @@
+generated: '2026-08-04'
+method: searched
+source: https://help.fieldpulse.com/api-reference/webhooks
+docs: https://help.fieldpulse.com/api-reference/webhooks
+spec_type: Webhooks
+description: 'FieldPulse documents an outbound webhook surface for Jobs, Estimates,
+  and Invoices with a published payload envelope and per-event example schemas. It
+  publishes no AsyncAPI document, and the webhooks are not declared in the OpenAPI
+  (OpenAPI 3.0.0 has no webhooks object and none is present). Webhook setup is not
+  self-serve: the documentation states that setup and configuration must be facilitated
+  by FieldPulse Support.'
+asyncapi:
+  published: false
+  probed:
+  - {url: 'https://help.fieldpulse.com/asyncapi.yaml', result: not-found}
+  - {url: 'https://help.fieldpulse.com/asyncapi.json', result: not-found}
+  note: No AsyncAPI document is published on any FieldPulse host, and no event catalog
+    beyond the webhooks documentation page exists.
+delivery:
+  direction: outbound
+  transport: HTTP POST
+  content_type: application/json
+  self_serve: false
+  provisioning: Webhook setup and configuration must be facilitated by FieldPulse
+    Support.
+  signing:
+    documented: false
+    note: No signature header, shared secret, or replay-protection scheme is documented.
+  retries:
+    documented: false
+  ordering:
+    documented: false
+envelope:
+  fields:
+  - {name: trigger, type: string, description: Event name, example: Job Created}
+  - {name: message, type: string, description: 'ACTION ON RESOURCE [FOR FIELD_NAME]',
+    example: UPDATE ON JOBS FOR status_id}
+  - {name: data, type: object, description: Event payload — either an object-only payload
+      or a change payload}
+  - {name: company, type: string, description: 'FieldPulse_<CompanyTitle>_<CompanyId>',
+    example: FieldPulse_Acme Services_321}
+  data_variants:
+  - name: object-only
+    shape: '{"id": <int>, ...event-specific fields}'
+  - name: change
+    shape: '{"old_value": <any>, "new_value": <any>, "object": {"id": <int>, ...}}'
+    description: Emitted for field/subfield updates.
+events:
+- resource: Jobs
+  trigger: Job Created
+  message: CREATE ON JOBS
+  variant: object-only
+  payload_fields: [id, job_type, customer_id, status, status_id, status_workflow_id,
+    in_progress_status_log, updated_at]
+- resource: Jobs
+  trigger: Job Custom Status Update
+  message: UPDATE ON JOBS FOR status_id
+  variant: change
+- resource: Jobs
+  trigger: Job Workflow Custom Status Update
+  message: UPDATE ON JOBS FOR status_id
+  variant: change
+- resource: Jobs
+  trigger: Job Start Time Update
+  message: UPDATE ON JOBS FOR start
+  variant: change
+- resource: Jobs
+  trigger: Job End Time Update
+  message: UPDATE ON JOBS FOR end
+  variant: change
+- resource: Estimates
+  trigger: Estimate Created
+  message: CREATE ON ESTIMATES
+  variant: object-only
+  payload_fields: [id, customer_id, author_id, title, status, status_id, status_workflow_id,
+    total, subtotal, tax, discount, updated_at]
+- resource: Estimates
+  trigger: Estimate Custom Status Update
+  message: UPDATE ON ESTIMATES FOR status_id
+  variant: change
+- resource: Estimates
+  trigger: Estimate Workflow Custom Status Update
+  message: UPDATE ON ESTIMATES FOR status_id
+  variant: change
+- resource: Invoices
+  trigger: Invoice Created
+  message: CREATE ON INVOICES
+  variant: object-only
+  payload_fields: [id, customer_id, author_id, title, status, status_id, status_workflow_id,
+    total, subtotal, tax, discount, updated_at]
+- resource: Invoices
+  trigger: Invoice Custom Status Update
+  message: UPDATE ON INVOICES FOR status_id
+  variant: change
+- resource: Invoices
+  trigger: Invoice Workflow Custom Status Update
+  message: UPDATE ON INVOICES FOR status_id
+  variant: change
+coverage:
+  resources_with_events: 3
+  resources_in_rest_api: 25
+  events_documented: 11
+gaps:
+- No AsyncAPI document — the event surface is prose plus JSON examples only.
+- No webhook signing or verification scheme documented, so a receiver cannot authenticate
+  a delivery.
+- No self-serve webhook management — creation requires FieldPulse Support.
+- Events cover only Jobs, Estimates, and Invoices; the other 22 REST resource areas
+  (customers, payments, purchase orders, timesheets, assets, projects, ...) emit
+  nothing.
+- No retry, ordering, or at-least-once delivery semantics documented.
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://help.fieldpulse.com/api-reference/webhooks.md
+  http_status: 200
