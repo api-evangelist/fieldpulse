@@ -39,30 +39,35 @@ tags:
 - CRM
 - SaaS
 apis:
-- aid: fieldpulse:fieldpulse-api
-  name: FieldPulse API
-  description: 'The FieldPulse Open API is a REST API for the FieldPulse field service
-    management platform. It exposes 109 operations across 57 paths covering assets,
-    asset categories, comments, company profile, contracts, customers, custom fields,
-    estimates, invoices, items, jobs, lead sources, locations, material lists, payments,
-    pipeline status, projects, purchase orders, subtasks, tags, teams, timesheets,
-    users, vendors, and version. All requests authenticate with an x-api-key header
-    issued by FieldPulse support, responses are JSON, and the API is rate limited to
-    50 requests per second with a RateLimit-Reset header on 429 responses.'
+- aid: fieldpulse:fieldpulse-docs-mcp
+  name: FieldPulse Docs MCP Server
+  description: >-
+    FieldPulse serves an anonymous, publicly reachable Model Context Protocol server from its documentation
+    host at https://help.fieldpulse.com/mcp. The server reports protocol version 2025-06-18 and exposes
+    two read-only tools — a documentation search tool and a read-only virtual-filesystem query tool over
+    the docs pages and the OpenAPI specs — plus MCP resources carrying the published FieldPulse agent
+    skill. It is a documentation-retrieval server, not a wrapper around the FieldPulse REST API.
+  humanURL: https://help.fieldpulse.com/
+  baseURL: https://help.fieldpulse.com/mcp
+  tags:
+  - MCP
+  - Documentation
+  - Agents
+  properties:
+  - type: MCPServer
+    url: mcp/fieldpulse-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/fieldpulse-tool-crosswalk.yml
+- aid: fieldpulse:fieldpulse-assets-api
+  name: FieldPulse Assets API
+  description: Endpoints related to assets
   humanURL: https://help.fieldpulse.com/api-reference/overview
   baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
   tags:
-  - Field Service Management
-  - Jobs
-  - Customers
-  - Estimates
-  - Invoices
-  - Payments
+  - Assets
   properties:
   - type: OpenAPI
-    url: openapi/fieldpulse-api-openapi-original.json
-  - type: Overlay
-    url: overlays/fieldpulse-api-overlay.yaml
+    url: openapi/fieldpulse-assets-api-openapi.yml
   - type: Documentation
     url: https://help.fieldpulse.com/api-reference/overview
   - type: GettingStarted
@@ -77,32 +82,590 @@ apis:
     url: examples/fieldpulse-examples.yml
   - type: Console
     url: sandbox/fieldpulse-sandbox.yml
-- aid: fieldpulse:fieldpulse-docs-mcp
-  name: FieldPulse Docs MCP Server
-  description: 'FieldPulse serves an anonymous, publicly reachable Model Context Protocol
-    server from its documentation host at https://help.fieldpulse.com/mcp. The server
-    reports protocol version 2025-06-18 and exposes two read-only tools — a documentation
-    search tool and a read-only virtual-filesystem query tool over the docs pages and
-    the OpenAPI specs — plus MCP resources carrying the published FieldPulse agent
-    skill. It is a documentation-retrieval server, not a wrapper around the FieldPulse
-    REST API.'
-  humanURL: https://help.fieldpulse.com/
-  baseURL: https://help.fieldpulse.com/mcp
+- aid: fieldpulse:fieldpulse-assets-category-api
+  name: FieldPulse Assets Category API
+  description: Endpoints related to assets category
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
   tags:
-  - MCP
-  - Documentation
-  - Agents
+  - Assets Category
   properties:
-  - type: MCPServer
-    url: mcp/fieldpulse-mcp.yml
-  - type: ToolCrosswalk
-    url: mcp/fieldpulse-tool-crosswalk.yml
+  - type: OpenAPI
+    url: openapi/fieldpulse-assets-category-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-comments-api
+  name: FieldPulse Comments API
+  description: Endpoints related to comments
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-comments-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-company-profile-api
+  name: FieldPulse Company Profile API
+  description: Endpoints related to contracts
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Company Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-company-profile-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-contracts-api
+  name: FieldPulse Contracts API
+  description: Endpoints related to contracts
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Contracts
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-contracts-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-custom-fields-api
+  name: FieldPulse Custom Fields API
+  description: Endpoints related to custom fields
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Custom Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-custom-fields-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-customers-api
+  name: FieldPulse Customers API
+  description: Endpoints related to customers
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-customers-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-estimates-api
+  name: FieldPulse Estimates API
+  description: Endpoints related to estimates
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Estimates
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-estimates-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-invoices-api
+  name: FieldPulse Invoices API
+  description: The Invoices API from FieldPulse — 4 operation(s) for invoices.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-items-api
+  name: FieldPulse Items API
+  description: The Items API from FieldPulse — 2 operation(s) for items.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-items-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-jobs-api
+  name: FieldPulse Jobs API
+  description: The Jobs API from FieldPulse — 5 operation(s) for jobs.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-lead-source-api
+  name: FieldPulse Lead Source API
+  description: The Lead Source API from FieldPulse — 1 operation(s) for lead source.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Lead Source
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-lead-source-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-locations-api
+  name: FieldPulse Locations API
+  description: The Locations API from FieldPulse — 2 operation(s) for locations.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-locations-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-material-lists-api
+  name: FieldPulse Material Lists API
+  description: The Material Lists API from FieldPulse — 6 operation(s) for material lists.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Material Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-material-lists-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-payments-api
+  name: FieldPulse Payments API
+  description: The Payments API from FieldPulse — 2 operation(s) for payments.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-payments-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-pipeline-status-api
+  name: FieldPulse Pipeline Status API
+  description: The Pipeline Status API from FieldPulse — 1 operation(s) for pipeline status.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Pipeline Status
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-pipeline-status-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-projects-api
+  name: FieldPulse Projects API
+  description: The Projects API from FieldPulse — 2 operation(s) for projects.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-projects-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-purchase-orders-api
+  name: FieldPulse Purchase Orders API
+  description: The Purchase Orders API from FieldPulse — 2 operation(s) for purchase orders.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Purchase Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-purchase-orders-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-subtasks-api
+  name: FieldPulse Subtasks API
+  description: The Subtasks API from FieldPulse — 2 operation(s) for subtasks.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Subtasks
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-subtasks-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-tags-api
+  name: FieldPulse Tags API
+  description: The Tags API from FieldPulse — 2 operation(s) for tags.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-tags-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-teams-api
+  name: FieldPulse Teams API
+  description: The Teams API from FieldPulse — 1 operation(s) for teams.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-teams-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-timesheets-api
+  name: FieldPulse Timesheets API
+  description: The Timesheets API from FieldPulse — 2 operation(s) for timesheets.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Timesheets
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-timesheets-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-users-api
+  name: FieldPulse Users API
+  description: The Users API from FieldPulse — 1 operation(s) for users.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-users-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-vendors-api
+  name: FieldPulse Vendors API
+  description: The Vendors API from FieldPulse — 2 operation(s) for vendors.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Vendors
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-vendors-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
+- aid: fieldpulse:fieldpulse-version-api
+  name: FieldPulse Version API
+  description: The Version API from FieldPulse — 1 operation(s) for version.
+  humanURL: https://help.fieldpulse.com/api-reference/overview
+  baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  tags:
+  - Version
+  properties:
+  - type: OpenAPI
+    url: openapi/fieldpulse-version-api-openapi.yml
+  - type: Documentation
+    url: https://help.fieldpulse.com/api-reference/overview
+  - type: GettingStarted
+    url: https://help.fieldpulse.com/api-reference/getting-started
+  - type: Postman
+    url: https://documenter.getpostman.com/view/35988189/2sA3XLEjFd
+  - type: Webhooks
+    url: asyncapi/fieldpulse-events-webhooks.yml
+  - type: RateLimits
+    url: rate-limits/fieldpulse-rate-limits.yml
+  - type: Examples
+    url: examples/fieldpulse-examples.yml
+  - type: Console
+    url: sandbox/fieldpulse-sandbox.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/fieldpulse-api-overlay.yaml
 - type: Website
   url: https://www.fieldpulse.com/
 - type: DeveloperPortal
