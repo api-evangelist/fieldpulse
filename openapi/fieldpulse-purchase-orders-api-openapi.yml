@@ -1,0 +1,345 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Purchase Orders API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Purchase Orders
+paths:
+  /purchase-orders/{id}:
+    get:
+      tags:
+      - Purchase Orders
+      summary: Retrieve purchase order by ID
+      description: Retrieve a purchase order by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getPurchaseOrdersById
+    put:
+      tags:
+      - Purchase Orders
+      summary: Update puchase order by ID
+      description: Update a puchase order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                vendor_type: integrated
+                vendor_id: 1
+                vendor_name: some string
+                'tax_rate ': some string
+                title: some string
+                status: draft
+                payment_status: unpaid
+                comment: some string
+                order_at: 12345678
+                expected_delivery_at: 12345678
+                received_at: 12345678
+                customer_id: 1
+                job_id: 1
+                project_id: 1
+                invoice_id: 1
+                assigned_id: 1
+                order_email: email@email.com
+                delivery_method: delivery
+                delivery_address: some string
+                delivery_flat: some string
+                delivery_city: some string
+                delivery_state: some string
+                delivery_postcode: some string
+                delivery_instruction: some string
+                pickup_branch_id: some string
+                order_number: O123
+                order_phone: '+123456789'
+                items:
+                - id: 1
+                  type: fieldpulse
+                  unit_measure: cm
+                  unit_cost: '1.0'
+                  is_taxed: false
+                  tax_rate: '1'
+                  quantity: '1'
+                  payment_status: unpaid
+                - id: 2
+                  type: fieldpulse
+                  unit_measure: cm
+                  unit_cost: '1.0'
+                  is_taxed: false
+                  tax_rate: '1'
+                  quantity: '1'
+                  payment_status: unpaid
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putPurchaseOrdersById
+    delete:
+      tags:
+      - Purchase Orders
+      summary: Delete purchase order by ID
+      description: Delete a purchase order
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deletePurchaseOrdersById
+  /purchase-orders:
+    get:
+      tags:
+      - Purchase Orders
+      summary: Retrieve purchase orders list
+      description: List purchase orders
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getPurchaseOrders
+    post:
+      tags:
+      - Purchase Orders
+      summary: Create a puchase order
+      description: Create a puchase order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                vendor_type: integrated
+                vendor_id: 1
+                vendor_name: some string
+                'tax_rate ': some string
+                title: some string
+                status: draft
+                payment_status: unpaid
+                comment: some string
+                order_at: 12345678
+                expected_delivery_at: 12345678
+                received_at: 12345678
+                customer_id: 1
+                job_id: 1
+                project_id: 1
+                invoice_id: 1
+                assigned_id: 1
+                order_email: email@email.com
+                delivery_method: delivery
+                delivery_address: some string
+                delivery_flat: some string
+                delivery_city: some string
+                delivery_state: some string
+                delivery_postcode: some string
+                delivery_instruction: some string
+                pickup_branch_id: some string
+                order_number: O123
+                order_phone: '+123456789'
+                items:
+                - id: 1
+                  type: fieldpulse
+                  unit_measure: cm
+                  unit_cost: '1.0'
+                  is_taxed: false
+                  tax_rate: '1'
+                  quantity: '1'
+                  payment_status: unpaid
+                - id: 2
+                  type: fieldpulse
+                  unit_measure: cm
+                  unit_cost: '1.0'
+                  is_taxed: false
+                  tax_rate: '1'
+                  quantity: '1'
+                  payment_status: unpaid
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postPurchaseOrders
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

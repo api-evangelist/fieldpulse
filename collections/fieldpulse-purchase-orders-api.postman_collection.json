@@ -1,0 +1,1557 @@
+{
+  "item": [
+    {
+      "id": "64349279-67f0-4c17-8b03-dfa691c4519b",
+      "name": "Purchase Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c61969e2-54ed-4d9a-83bd-805dd4ebf85e",
+          "name": "Retrieve purchase order by ID",
+          "request": {
+            "name": "Retrieve purchase order by ID",
+            "description": {
+              "content": "Retrieve a purchase order by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase-orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71062949-b4d0-4a78-b481-a7704e865736",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9103b8e8-2115-4719-a68d-b99cc759a579",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a81751a-2f37-4927-a216-eb0fe5ae0100",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL or object not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "884022d2-f966-4aff-9892-a0fa670b2ec5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0bab3c1c-e269-4262-949b-6615096140f2",
+          "name": "Update puchase order by ID",
+          "request": {
+            "name": "Update puchase order by ID",
+            "description": {
+              "content": "Update a puchase order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase-orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6d0bcc0-a702-4126-9fbe-4700c71941f3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5df8354-899a-4ef4-b7eb-f4b0e0ad7102",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": true,\n  \"errors\": [\n    \"error message\",\n    \"error message\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31c171af-0033-4e66-8593-3410ecf84ef2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "567df858-1246-48e2-88c3-00156d12997a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL or object not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ba6e89f-8e4f-4c66-9c14-0e5eebbb5e14",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88052a69-ed4b-43e5-8081-aa019d0a5c82",
+          "name": "Delete purchase order by ID",
+          "request": {
+            "name": "Delete purchase order by ID",
+            "description": {
+              "content": "Delete a purchase order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase-orders",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4e39c7d-3cd4-492d-b48e-cef491f62f7a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcc6e6aa-86f9-4b8e-9b29-1f3ba16dcfeb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41009a46-1e55-4f96-ba75-2a8453dc5837",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL or object not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2238f810-bbe6-46d6-b028-24fa96a93875",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9f8b03d-7e4a-42d1-a0da-50b64a19cce6",
+          "name": "Retrieve purchase orders list",
+          "request": {
+            "name": "Retrieve purchase orders list",
+            "description": {
+              "content": "List purchase orders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase-orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Defaults to 20 items per page, maximum 100 items allowed."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page number. Starts from 1, defaults to 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Array of attribute, operator, and value parts."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Array of attribute and order values."
+                },
+                {
+                  "disabled": false,
+                  "key": "rel",
+                  "value": "<string>",
+                  "description": "array consisting of indices with the desired relation to include"
+                },
+                {
+                  "disabled": false,
+                  "key": "calculate_count",
+                  "value": "<string>",
+                  "description": "true or false. If true, in response will be included also total count"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b06da9ac-cab0-4bee-bec1-7f6d0e1ca822",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "rel",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "calculate_count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0d61670-30db-4288-af89-be34a588c91f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "rel",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "calculate_count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d78bbff-54a4-4814-b50f-38fca40079d9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "rel",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "calculate_count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b233535-9ad2-41c7-8d66-4d85472c9c68",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "rel",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "calculate_count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd13601a-1bde-4e7f-b811-792ac79661b0",
+          "name": "Create a puchase order",
+          "request": {
+            "name": "Create a puchase order",
+            "description": {
+              "content": "Create a puchase order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase-orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2c1bab9-12ee-4886-8ce5-326350e81d70",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f533d895-0f23-4135-989c-7672adc9c1a1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": true,\n  \"errors\": [\n    \"error message\",\n    \"error message\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edbded0c-655f-4ff9-a858-e519838167fc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1786b7ee-f306-4c85-8027-6dd8daf90530",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae85c948-2235-4343-a8d8-4b541acb895d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vendor_type\": \"integrated\",\n  \"vendor_id\": 1,\n  \"vendor_name\": \"some string\",\n  \"tax_rate \": \"some string\",\n  \"title\": \"some string\",\n  \"status\": \"draft\",\n  \"payment_status\": \"unpaid\",\n  \"comment\": \"some string\",\n  \"order_at\": 12345678,\n  \"expected_delivery_at\": 12345678,\n  \"received_at\": 12345678,\n  \"customer_id\": 1,\n  \"job_id\": 1,\n  \"project_id\": 1,\n  \"invoice_id\": 1,\n  \"assigned_id\": 1,\n  \"order_email\": \"email@email.com\",\n  \"delivery_method\": \"delivery\",\n  \"delivery_address\": \"some string\",\n  \"delivery_flat\": \"some string\",\n  \"delivery_city\": \"some string\",\n  \"delivery_state\": \"some string\",\n  \"delivery_postcode\": \"some string\",\n  \"delivery_instruction\": \"some string\",\n  \"pickup_branch_id\": \"some string\",\n  \"order_number\": \"O123\",\n  \"order_phone\": \"+123456789\",\n  \"items\": [\n    {\n      \"id\": 1,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"fieldpulse\",\n      \"unit_measure\": \"cm\",\n      \"unit_cost\": \"1.0\",\n      \"is_taxed\": false,\n      \"tax_rate\": \"1\",\n      \"quantity\": \"1\",\n      \"payment_status\": \"unpaid\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "14dbdcfc-2786-4c2a-b50b-cd6cc0c6678f",
+    "name": "FieldPulse Purchase Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the FieldPulse field service management platform.\n\n**Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.\n\n**Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).",
+      "type": "text/plain"
+    }
+  }
+}

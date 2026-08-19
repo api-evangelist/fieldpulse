@@ -1,0 +1,398 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Invoices API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Invoices
+paths:
+  /invoices/{invoiceId}:
+    get:
+      tags:
+      - Invoices
+      summary: Retrieve invoice by ID
+      description: Retrieve an invoice by ID
+      parameters:
+      - name: rel[public_link]
+        in: query
+        schema:
+          type: string
+        description: For getting single latest public link for the Invoice
+      - name: rel[public_links]
+        in: query
+        schema:
+          type: string
+        description: For getting all public links for the Invoice
+      - name: invoiceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getInvoicesByInvoiceId
+    put:
+      tags:
+      - Invoices
+      summary: Update invoice by ID
+      description: Update an invoice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      parameters:
+      - name: invoiceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putInvoicesByInvoiceId
+    delete:
+      tags:
+      - Invoices
+      summary: Delete invoice by ID
+      description: Delete an invoice
+      parameters:
+      - name: invoiceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deleteInvoicesByInvoiceId
+  /invoices/{invoiceId}/price-update:
+    put:
+      tags:
+      - Invoices
+      summary: Update Invoice Prices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                line_items:
+                - id: 1
+                  line_components:
+                  - id: 1
+                    unit_cost: '10'
+                    unit_price: '10'
+                - id: 2
+                  line_components:
+                  - id: 2
+                    unit_cost: '20'
+                    unit_price: '20'
+      parameters:
+      - name: invoiceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putInvoicesByInvoiceIdPriceUpdate
+  /invoices/qb-classes:
+    get:
+      tags:
+      - Invoices
+      summary: Get Invoice QB Classes
+      parameters:
+      - name: active
+        in: query
+        schema:
+          type: string
+        description: 'Optional. Values true/false. If true, will return active. If false, will return not active. If not provided, will return all '
+        example: <boolean>
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Default 20. Maximum 100
+        example: <integer>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getInvoicesQbClasses
+  /invoices:
+    get:
+      tags:
+      - Invoices
+      summary: List invoices
+      description: List invoices
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+        description: Value can be any attribute name from the current resource.
+        example: <string>
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: asc, desc'
+        example: <string>
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search string.
+        example: <string>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      - name: rel[public_link]
+        in: query
+        schema:
+          type: string
+        description: For getting single latest public link for the Invoice
+      - name: rel[public_links]
+        in: query
+        schema:
+          type: string
+        description: For getting all public links for the Invoice
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getInvoices
+    post:
+      tags:
+      - Invoices
+      summary: Create an invoice
+      description: Create an invoice
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postInvoices
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

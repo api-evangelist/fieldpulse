@@ -1,0 +1,237 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FieldPulse Invoices API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve invoice by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/invoices/:invoiceId",
+            "params": [
+              {
+                "name": "rel[public_link]",
+                "value": "",
+                "type": "query",
+                "description": "For getting single latest public link for the Invoice"
+              },
+              {
+                "name": "rel[public_links]",
+                "value": "",
+                "type": "query",
+                "description": "For getting all public links for the Invoice"
+              },
+              {
+                "name": "invoiceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an invoice by ID"
+        },
+        {
+          "info": {
+            "name": "Update invoice by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/invoices/:invoiceId",
+            "params": [
+              {
+                "name": "invoiceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an invoice"
+        },
+        {
+          "info": {
+            "name": "Delete invoice by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/invoices/:invoiceId",
+            "params": [
+              {
+                "name": "invoiceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an invoice"
+        },
+        {
+          "info": {
+            "name": "Update Invoice Prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/invoices/:invoiceId/price-update",
+            "params": [
+              {
+                "name": "invoiceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Invoice Prices"
+        },
+        {
+          "info": {
+            "name": "Get Invoice QB Classes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/invoices/qb-classes",
+            "params": [
+              {
+                "name": "active",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "Optional. Values true/false. If true, will return active. If false, will return not active. If not provided, will return all "
+              },
+              {
+                "name": "limit",
+                "value": "<integer>",
+                "type": "query",
+                "description": "Default 20. Maximum 100"
+              }
+            ]
+          },
+          "docs": "Get Invoice QB Classes"
+        },
+        {
+          "info": {
+            "name": "List invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/invoices",
+            "params": [
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "page",
+                "value": "<string>",
+                "type": "query",
+                "description": "Page number. Starts from 1, defaults to 1."
+              },
+              {
+                "name": "sort_by",
+                "value": "<string>",
+                "type": "query",
+                "description": "Value can be any attribute name from the current resource."
+              },
+              {
+                "name": "sort_dir",
+                "value": "<string>",
+                "type": "query",
+                "description": "Allowed values: asc, desc"
+              },
+              {
+                "name": "search",
+                "value": "<string>",
+                "type": "query",
+                "description": "Search string."
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "true or false. If true, in response will be included also total count"
+              },
+              {
+                "name": "rel[public_link]",
+                "value": "",
+                "type": "query",
+                "description": "For getting single latest public link for the Invoice"
+              },
+              {
+                "name": "rel[public_links]",
+                "value": "",
+                "type": "query",
+                "description": "For getting all public links for the Invoice"
+              }
+            ]
+          },
+          "docs": "List invoices"
+        },
+        {
+          "info": {
+            "name": "Create an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/invoices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an invoice"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

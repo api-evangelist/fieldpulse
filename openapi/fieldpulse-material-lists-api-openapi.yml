@@ -1,0 +1,524 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Material Lists API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Material Lists
+paths:
+  /material-lists/{id}/connect:
+    post:
+      tags:
+      - Material Lists
+      summary: Connect Material List to entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                to_entity: ''
+                to_entity_id: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postMaterialListsByIdConnect
+  /material-lists/{id}/disconnect:
+    post:
+      tags:
+      - Material Lists
+      summary: Disconnect Material List from entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                from_entity: ''
+                from_entity_id: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postMaterialListsByIdDisconnect
+  /material-lists/{id}/item-connect:
+    post:
+      tags:
+      - Material Lists
+      summary: Connect Material List item to entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                to_entity: ''
+                to_entity_id: ''
+                item_ids: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postMaterialListsByIdItemConnect
+  /material-list/{id}:
+    get:
+      tags:
+      - Material Lists
+      summary: Get Material List by ID
+      parameters:
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: asn
+        in: query
+        schema:
+          type: string
+        description: Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      - name: withCustomfieldsAndRelatedData
+        in: query
+        schema:
+          type: string
+        description: If true, response will contain custom fields data
+        example: <boolean>
+      - name: by_view
+        in: query
+        schema:
+          type: string
+        description: Filter by view mode. Acceptable values all, team, my
+        example: <string>
+      - name: by_entity
+        in: query
+        schema:
+          type: string
+        description: Filter by entity. Acceptable values job, project, invoice, order, estimate. Required if entity_id is provided
+        example: <string>
+      - name: by_entity_id
+        in: query
+        schema:
+          type: string
+        description: Filter by existing entity id listed for by_entity parameter
+        example: <integer>
+      - name: from_job_start_time
+        in: query
+        schema:
+          type: string
+        description: Filter by job start time
+        example: <timestamp>
+      - name: to_job_end_time
+        in: query
+        schema:
+          type: string
+        description: Filter by job end time
+        example: <timestamp>
+      - name: unscheduled
+        in: query
+        schema:
+          type: string
+        description: Filter by unscheduled jobs
+        example: <boolean>
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getMaterialListById
+    put:
+      tags:
+      - Material Lists
+      summary: Update Material List by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putMaterialListById
+    delete:
+      tags:
+      - Material Lists
+      summary: Delete Material List by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deleteMaterialListById
+  /material-lists:
+    get:
+      tags:
+      - Material Lists
+      summary: Get list of Material Lists
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 50 items per page
+        example: <string>
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search string.
+        example: <string>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: asn
+        in: query
+        schema:
+          type: string
+        description: Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: if true, response will contain total_count
+        example: <boolean>
+      - name: withCustomfieldsAndRelatedData
+        in: query
+        schema:
+          type: string
+        description: If true, response will contain custom fields data
+        example: <boolean>
+      - name: by_view
+        in: query
+        schema:
+          type: string
+        description: Filter by view mode. Acceptable values all, team, my
+        example: <string>
+      - name: by_entity
+        in: query
+        schema:
+          type: string
+        description: Filter by entity. Acceptable values job, project, invoice, order, estimate. Required if entity_id is provided
+        example: <string>
+      - name: by_entity_id
+        in: query
+        schema:
+          type: string
+        description: Filter by existing entity id listed for by_entity parameter
+        example: <integer>
+      - name: from_job_start_time
+        in: query
+        schema:
+          type: string
+        description: Filter by job start time
+        example: <timestamp>
+      - name: to_job_end_time
+        in: query
+        schema:
+          type: string
+        description: Filter by job end time
+        example: <timestamp>
+      - name: unscheduled
+        in: query
+        schema:
+          type: string
+        description: Filter by unscheduled jobs
+        example: <boolean>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getMaterialLists
+  /material-list:
+    post:
+      tags:
+      - Material Lists
+      summary: Create Material List
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postMaterialList
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

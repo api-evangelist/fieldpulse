@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FieldPulse Company Profile API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Company Profile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve company profile by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/company-profile/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve company profile by ID"
+        },
+        {
+          "info": {
+            "name": "Retrieve company profiles list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/company-profile",
+            "params": [
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 50 items per page"
+              },
+              {
+                "name": "page",
+                "value": "<string>",
+                "type": "query",
+                "description": "Page number. Starts from 1, defaults to 1."
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "true or false. If true, in response will be included also total count"
+              },
+              {
+                "name": "search",
+                "value": "<string>",
+                "type": "query",
+                "description": "Search string."
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              }
+            ]
+          },
+          "docs": "Retrieve company profiles list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,293 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Locations API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Locations
+paths:
+  /locations/{locationId}:
+    get:
+      tags:
+      - Locations
+      summary: Retrieve location by ID
+      description: Retrieve a location by ID
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getLocationsByLocationId
+    put:
+      tags:
+      - Locations
+      summary: Update location by ID
+      description: Update a location
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                object_type: customer
+                object_id: 1
+                title: some string
+                address_1: some string
+                address_2: some string
+                city: some string
+                state: some string
+                zip_code: some string
+                notes: some string
+                is_main_location: true
+                is_primary_location: true
+                primary_customer_contact_id: null
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putLocationsByLocationId
+    delete:
+      tags:
+      - Locations
+      summary: Delete location by ID
+      description: Delete a location
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deleteLocationsByLocationId
+  /locations:
+    get:
+      tags:
+      - Locations
+      summary: Retrieve locations list
+      description: List locations for an object
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: object_type
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: customer, job.'
+        example: <string>
+      - name: object_id
+        in: query
+        schema:
+          type: string
+        description: Object ID.
+        example: <string>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: 'Optional. Values: true, false. If true, the response will contain totla_count'
+        example: <boolean>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: asn
+        in: query
+        schema:
+          type: string
+        description: Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getLocations
+    post:
+      tags:
+      - Locations
+      summary: Create a location
+      description: Create a location
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                object_type: customer
+                object_id: 1
+                title: some string
+                address_1: some string
+                address_2: some string
+                city: some string
+                state: some string
+                zip_code: some string
+                notes: some string
+                is_main_location: true
+                is_primary_location: true
+                primary_customer_contact_id: null
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postLocations
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FieldPulse Purchase Orders API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Purchase Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve purchase order by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/purchase-orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a purchase order by ID"
+        },
+        {
+          "info": {
+            "name": "Update puchase order by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/purchase-orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a puchase order"
+        },
+        {
+          "info": {
+            "name": "Delete purchase order by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/purchase-orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a purchase order"
+        },
+        {
+          "info": {
+            "name": "Retrieve purchase orders list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/purchase-orders",
+            "params": [
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "page",
+                "value": "<string>",
+                "type": "query",
+                "description": "Page number. Starts from 1, defaults to 1."
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "true or false. If true, in response will be included also total count"
+              }
+            ]
+          },
+          "docs": "List purchase orders"
+        },
+        {
+          "info": {
+            "name": "Create a puchase order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/purchase-orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a puchase order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

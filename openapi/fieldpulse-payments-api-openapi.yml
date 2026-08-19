@@ -1,0 +1,285 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Payments API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Payments
+paths:
+  /payments/{id}:
+    get:
+      tags:
+      - Payments
+      summary: Retrieve payment by ID
+      description: Retrieve a payment by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getPaymentsById
+    put:
+      tags:
+      - Payments
+      summary: Update payment by ID
+      description: Update a payment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                invoice_id: 1
+                payment_date: 1234567890
+                amount: '1.1'
+                'method ': cash
+                payment_method_id: 1
+                notes: some string
+                square_transaction_id: some string
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putPaymentsById
+    delete:
+      tags:
+      - Payments
+      summary: Delete payment by ID
+      description: Delete a payment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deletePaymentsById
+  /payments:
+    get:
+      tags:
+      - Payments
+      summary: Retrieve payments list
+      description: List payments
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: cuid, method,amount,payment_date'
+        example: <string>
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: asc, desc'
+        example: <string>
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search string.
+        example: <string>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        example: <boolean>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        example: <array>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getPayments
+    post:
+      tags:
+      - Payments
+      summary: Create a payment
+      description: Create a payment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                invoice_id: 1
+                payment_date: 1234567890
+                amount: '1.1'
+                'method ': cash
+                payment_method_id: 1
+                notes: some string
+                square_transaction_id: some string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postPayments
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

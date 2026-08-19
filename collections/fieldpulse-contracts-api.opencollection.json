@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FieldPulse Contracts API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve contract by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/contracts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve contract by ID"
+        },
+        {
+          "info": {
+            "name": "Retrieve contracts list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/contracts",
+            "params": [
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "true or false. If true, in response will be included also total count"
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              }
+            ]
+          },
+          "docs": "Retrieve contracts list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

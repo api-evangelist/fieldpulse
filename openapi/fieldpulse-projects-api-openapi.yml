@@ -1,0 +1,307 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Projects API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Projects
+paths:
+  /projects/{projectId}:
+    get:
+      tags:
+      - Projects
+      summary: Retrieve project by ID
+      description: Retrieve a project by ID
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getProjectsByProjectId
+    put:
+      tags:
+      - Projects
+      summary: Update project by ID
+      description: Update a project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                customer_id: 1
+                name: some string
+                description: some string
+                status: 1
+                status_id: 1
+                status_workflow_id: 1
+                location_id: 1
+                location: some string
+                start_time: 1234567890
+                end_time: 1234567890
+                notes: some string
+                job_notes: some string
+                completion_percentage: '1'
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putProjectsByProjectId
+    delete:
+      tags:
+      - Projects
+      summary: Delete project by ID
+      description: Delete a project
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deleteProjectsByProjectId
+  /projects:
+    get:
+      tags:
+      - Projects
+      summary: Retrieve projects list
+      description: List projects
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: cuid, name,status_id,completion_percentage'
+        example: <string>
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: asc, desc'
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search string.
+        example: <string>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      - name: asn
+        in: query
+        schema:
+          type: string
+        description: Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both.
+        example: <array>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getProjects
+    post:
+      tags:
+      - Projects
+      summary: Create a project
+      description: Create a project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                customer_id: 1
+                name: some string
+                description: some string
+                status: 1
+                status_id: 1
+                status_workflow_id: 1
+                location_id: 1
+                location: some string
+                start_time: 1234567890
+                end_time: 1234567890
+                notes: some string
+                job_notes: some string
+                completion_percentage: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postProjects
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

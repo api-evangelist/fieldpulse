@@ -1,0 +1,40 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Version API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Version
+paths:
+  /version:
+    get:
+      tags:
+      - Version
+      summary: Get version
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                reported: '2.5'
+                latest: '2.0'
+                deprecated: false
+      operationId: getVersion
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

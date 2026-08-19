@@ -1,0 +1,339 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FieldPulse Customers API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve customer contact by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers/:customerId/customer-contact/:contactId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve customer contact by ID"
+        },
+        {
+          "info": {
+            "name": "Update customer contact by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers/:customerId/customer-contact/:contactId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update customer contact by ID"
+        },
+        {
+          "info": {
+            "name": "Delete customer contact by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers/:customerId/customer-contact/:contactId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete customer contact by ID"
+        },
+        {
+          "info": {
+            "name": "Retrieve customer contacts list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers/:customerId/customer-contact",
+            "params": [
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "page",
+                "value": "<string>",
+                "type": "query",
+                "description": "Page number. Starts from 1, defaults to 1."
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "true or false. If true, in response will be included also total count"
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve customer contacts list"
+        },
+        {
+          "info": {
+            "name": "Create a customer contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers/:customerId/customer-contact",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a customer contact"
+        },
+        {
+          "info": {
+            "name": "Retrieve customer by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers/:customerId",
+            "params": [
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "asn",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve customer by ID"
+        },
+        {
+          "info": {
+            "name": "Update customer by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers/:customerId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update customer by ID"
+        },
+        {
+          "info": {
+            "name": "Delete customer by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers/:customerId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete customer by ID"
+        },
+        {
+          "info": {
+            "name": "Retrieve customers list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers",
+            "params": [
+              {
+                "name": "sort_by",
+                "value": "<string>",
+                "type": "query",
+                "description": "Allowed values: searchable, email, phone, address_1"
+              },
+              {
+                "name": "sort_dir",
+                "value": "<string>",
+                "type": "query",
+                "description": "Allowed values: asc, desc"
+              },
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "page",
+                "value": "<string>",
+                "type": "query",
+                "description": "Page number. Starts from 1, defaults to 1."
+              },
+              {
+                "name": "search",
+                "value": "<string>",
+                "type": "query",
+                "description": "Search string."
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "asn",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "true or false. If true, in response will be included also total count"
+              }
+            ]
+          },
+          "docs": "Retrieve customers list"
+        },
+        {
+          "info": {
+            "name": "Create a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a customer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1251 @@
+{
+  "item": [
+    {
+      "id": "cbba97ea-afdb-4516-98ca-49a41fc1b9e4",
+      "name": "Items",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62141052-7e4c-4272-a29f-80e92ab88761",
+          "name": "Retrieve item by ID",
+          "request": {
+            "name": "Retrieve item by ID",
+            "description": {
+              "content": "Retrieve an invoice item by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f26d78b0-40d2-4b7f-9da2-14d753f11539",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67a2eab8-61ac-4f2a-bb25-afa07c2700be",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff5944db-220b-4a13-ae54-62976323c0f6",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL or object not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d07aac9-7565-4229-ba34-62ee3b5bce8b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "641a5f36-2578-429c-82d2-911ce1b02c6a",
+          "name": "Update by Id",
+          "request": {
+            "name": "Update by Id",
+            "description": {},
+            "url": {
+              "path": [
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7ceee18-b3fd-43bc-baa7-2237f207a58d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "450d9a34-d1cb-4557-8fa6-83c1f8b50493",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": true,\n  \"errors\": [\n    \"error message\",\n    \"error message\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0def135f-0913-4cab-a15c-c64d304706cb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66900f86-f990-48d5-abe8-b7913a7cb492",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL or object not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a556dfb-8f75-4b4a-823c-5e395f19e73c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff81611c-bade-4ebf-85b1-1ae87a457dce",
+          "name": "Retrieve items list",
+          "request": {
+            "name": "Retrieve items list",
+            "description": {
+              "content": "List invoice items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "Defaults to 20 items per page, maximum 100 items allowed."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page number. Starts from 1, defaults to 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "calculate_count",
+                  "value": "<string>",
+                  "description": "true or false. If true, in response will be included also total count"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Array of attribute, operator, and value parts."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Array of attribute and order values."
+                },
+                {
+                  "disabled": false,
+                  "key": "rel",
+                  "value": "<string>",
+                  "description": "array consisting of indices with the desired relation to include"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39dc26cc-d679-4b8b-8ad8-4c1f7e23524a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "calculate_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "rel",
+                      "value": "<array>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb6a4cad-c373-44d8-a901-e0deaa66aeb1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "calculate_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "rel",
+                      "value": "<array>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c4fd448-1783-4edf-af45-79804b5d7b6a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "calculate_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "rel",
+                      "value": "<array>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94a7bb6c-72ce-4561-a6f6-183b49da96f3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "calculate_count",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "rel",
+                      "value": "<array>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6fa2a1c-6567-4f73-a6ef-31daa920cacd",
+          "name": "Create item",
+          "request": {
+            "name": "Create item",
+            "description": {
+              "content": "Create an invoice item",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc6f28c6-94ef-42fb-a042-bd27988efaa8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe36c2a5-b49e-4038-a2d8-47fad01145db",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": true,\n  \"errors\": [\n    \"error message\",\n    \"error message\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4bd4ab3c-2f8c-43f5-8052-ec5ec1c63eae",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c42750c-3288-4a9f-bb4d-3f616c6d6c1e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"\",\n  \"default_taxable\": \"\",\n  \"default_description\": \"\",\n  \"type\": \"\",\n  \"sku\": \"\",\n  \"default_unit_price\": \"\",\n  \"default_unit_cost\": \"\",\n  \"default_quantity\": \"\",\n  \"track_inventory\": \"\",\n  \"is_active\": \"\",\n  \"xero_sales_account\": \"\",\n  \"xero_tax_account\": \"\",\n  \"tax_rate\": \"\",\n  \"vendor_id\": \"\",\n  \"vendor_type\": \"\",\n  \"vendor_name\": \"\",\n  \"supplier_item_id\": \"\",\n  \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n  \"auto_reorder_level\": \"\",\n  \"replenishment_level\": \"\",\n  \"minimum_order_quantity\": \"\",\n  \"price_update_method\": \"\",\n  \"automatic_markup_percentage\": \"\",\n  \"inventory_mode\": \"\",\n  \"qbo_sales_tax_code_id\": \"\",\n  \"qbo_purchase_tax_code_id\": \"\",\n  \"qbo_income_account_id\": \"\",\n  \"qbo_expense_account_id\": \"\",\n  \"qbo_asset_account_id\": \"\",\n  \"qbo_id\": \"\",\n  \"quantity_available\": \"\",\n  \"unit_measure\": \"\",\n  \"external_id\": \"\",\n  \"external_type\": \"\",\n  \"external_sync_status\": \"\",\n  \"upc\": \"\",\n  \"unit_cost_per_unit_measure\": \"\",\n  \"unit_price_per_unit_measure\": \"\",\n  \"minimum_dimensional_size\": \"\",\n  \"maximum_dimensional_size\": \"\",\n  \"is_round_up_to_even_dimensional_size\": \"\",\n  \"is_labor_item\": \"\",\n  \"inventory_hub_items\": [\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    },\n    {\n      \"inventory_hub_id\": \"\",\n      \"is_automatic_replenishment_by_purchase_order_enabled\": \"\",\n      \"auto_reorder_level\": \"\",\n      \"replenishment_level\": \"\",\n      \"quantity_available\": \"\"\n    }\n  ],\n  \"item_links\": [\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    },\n    {\n      \"item_id\": \"\",\n      \"name\": \"\",\n      \"url\": \"\"\n    }\n  ],\n  \"serialized_inventories\": [\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    },\n    {\n      \"serial_number\": \"\",\n      \"reference_number\": \"\",\n      \"asset_template_id\": \"\",\n      \"invoice_id\": \"\",\n      \"hub_id\": \"\",\n      \"id_number\": \"\",\n      \"default_unit_cost\": \"\"\n    }\n  ],\n  \"item_price_tiers\": [\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    },\n    {\n      \"tier_id\": \"\",\n      \"adjustment_property\": \"\",\n      \"adjustment_value\": \"\"\n    }\n  ],\n  \"customfields\": [\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    },\n    {\n      \"field_instance_id\": \"\",\n      \"value\": \"\"\n    }\n  ],\n  \"tags\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Request URL not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5a1df616-cabc-45a6-a8cd-20e1b7b37b7e",
+    "name": "FieldPulse Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the FieldPulse field service management platform.\n\n**Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.\n\n**Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).",
+      "type": "text/plain"
+    }
+  }
+}

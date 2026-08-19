@@ -1,0 +1,668 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Customers API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Customers
+  description: Endpoints related to customers
+paths:
+  /customers/{customerId}/customer-contact/{contactId}:
+    get:
+      tags:
+      - Customers
+      summary: Retrieve customer contact by ID
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: contactId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getCustomersByCustomerIdCustomerContactByContactId
+    put:
+      tags:
+      - Customers
+      summary: Update customer contact by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: some string
+                last_name: some string
+                email: some@mail.com
+                notes: some string
+                phone: '+12345678'
+                order: 1
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: contactId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putCustomersByCustomerIdCustomerContactByContactId
+    delete:
+      tags:
+      - Customers
+      summary: Delete customer contact by ID
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: contactId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deleteCustomersByCustomerIdCustomerContactByContactId
+  /customers/{customerId}/customer-contact:
+    get:
+      tags:
+      - Customers
+      summary: Retrieve customer contacts list
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getCustomersByCustomerIdCustomerContact
+    post:
+      tags:
+      - Customers
+      summary: Create a customer contact
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: some string
+                last_name: some string
+                email: some@mail.com
+                notes: some string
+                phone: '+12345678'
+                order: 1
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postCustomersByCustomerIdCustomerContact
+  /customers/{customerId}:
+    get:
+      tags:
+      - Customers
+      summary: Retrieve customer by ID
+      parameters:
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: asn
+        in: query
+        schema:
+          type: string
+        description: Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getCustomersByCustomerId
+    put:
+      tags:
+      - Customers
+      summary: Update customer by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: ''
+                last_name: ''
+                display_name: ''
+                email: ''
+                phone: ''
+                notes: ''
+                has_different_billing_address: ''
+                status: ''
+                company_name: ''
+                alt_email: ''
+                billing_address_1: ''
+                billing_address_2: ''
+                billing_city: ''
+                billing_state: ''
+                billing_zip_code: ''
+                assigned_to: ''
+                secondary_email: ''
+                secondary_phone: ''
+                service_address_1: ''
+                service_address_2: ''
+                service_address_city: ''
+                service_address_state: ''
+                service_address_zip_code: ''
+                job_notes: ''
+                customfields:
+                - id: ''
+                  field_instance_id: ''
+                  value: ''
+                - id: ''
+                  field_instance_id: ''
+                  value: ''
+                locations:
+                - object_type: ''
+                  object_id: ''
+                  title: ''
+                  address_1: ''
+                  address_2: ''
+                  city: ''
+                  state: ''
+                  zip_code: ''
+                  is_main_location: ''
+                - object_type: ''
+                  object_id: ''
+                  title: ''
+                  address_1: ''
+                  address_2: ''
+                  city: ''
+                  state: ''
+                  zip_code: ''
+                  is_main_location: ''
+                account_type: ''
+                pipeline_status_id: ''
+                lead_source_id: ''
+                tags: ''
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putCustomersByCustomerId
+    delete:
+      tags:
+      - Customers
+      summary: Delete customer by ID
+      parameters:
+      - name: customerId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deleteCustomersByCustomerId
+  /customers:
+    get:
+      tags:
+      - Customers
+      summary: Retrieve customers list
+      parameters:
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: searchable, email, phone, address_1'
+        example: <string>
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: asc, desc'
+        example: <string>
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search string.
+        example: <string>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: asn
+        in: query
+        schema:
+          type: string
+        description: Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getCustomers
+    post:
+      tags:
+      - Customers
+      summary: Create a customer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                first_name: ''
+                last_name: ''
+                display_name: ''
+                email: ''
+                phone: ''
+                notes: ''
+                has_different_billing_address: ''
+                status: ''
+                company_name: ''
+                alt_email: ''
+                billing_address_1: ''
+                billing_address_2: ''
+                billing_city: ''
+                billing_state: ''
+                billing_zip_code: ''
+                assigned_to: ''
+                secondary_email: ''
+                secondary_phone: ''
+                service_address_1: ''
+                service_address_2: ''
+                service_address_city: ''
+                service_address_state: ''
+                service_address_zip_code: ''
+                job_notes: ''
+                customfields:
+                - id: ''
+                  field_instance_id: ''
+                  value: ''
+                - id: ''
+                  field_instance_id: ''
+                  value: ''
+                locations:
+                - object_type: ''
+                  object_id: ''
+                  title: ''
+                  address_1: ''
+                  address_2: ''
+                  city: ''
+                  state: ''
+                  zip_code: ''
+                  is_main_location: ''
+                - object_type: ''
+                  object_id: ''
+                  title: ''
+                  address_1: ''
+                  address_2: ''
+                  city: ''
+                  state: ''
+                  zip_code: ''
+                  is_main_location: ''
+                account_type: ''
+                pipeline_status_id: ''
+                lead_source_id: ''
+                tags: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postCustomers
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

@@ -1,0 +1,162 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FieldPulse Payments API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve payment by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/payments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a payment by ID"
+        },
+        {
+          "info": {
+            "name": "Update payment by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/payments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a payment"
+        },
+        {
+          "info": {
+            "name": "Delete payment by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/payments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a payment"
+        },
+        {
+          "info": {
+            "name": "Retrieve payments list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/payments",
+            "params": [
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "page",
+                "value": "<string>",
+                "type": "query",
+                "description": "Page number. Starts from 1, defaults to 1."
+              },
+              {
+                "name": "sort_by",
+                "value": "<string>",
+                "type": "query",
+                "description": "Allowed values: cuid, method,amount,payment_date"
+              },
+              {
+                "name": "sort_dir",
+                "value": "<string>",
+                "type": "query",
+                "description": "Allowed values: asc, desc"
+              },
+              {
+                "name": "search",
+                "value": "<string>",
+                "type": "query",
+                "description": "Search string."
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query"
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List payments"
+        },
+        {
+          "info": {
+            "name": "Create a payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a payment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

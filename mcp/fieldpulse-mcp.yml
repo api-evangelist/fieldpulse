@@ -2,12 +2,11 @@ generated: '2026-08-04'
 method: searched
 status: published
 source: https://help.fieldpulse.com/.well-known/mcp.json
-description: 'FieldPulse serves a live, anonymous Model Context Protocol server from
-  its documentation host. It is a documentation-retrieval server (search + a read-only
-  virtual filesystem over the docs pages and the OpenAPI specs, plus a feedback
-  submission tool) rather than an executable wrapper around the FieldPulse Open API.
-  The tool list below was retrieved live with an unauthenticated tools/list call, so
-  every inputSchema here is the real published schema, not a reconstruction.'
+description: FieldPulse serves a live, anonymous Model Context Protocol server from its documentation
+  host. It is a documentation-retrieval server (search + a read-only virtual filesystem over the docs
+  pages and the OpenAPI specs, plus a feedback submission tool) rather than an executable wrapper around
+  the FieldPulse Open API. The tool list below was retrieved live with an unauthenticated tools/list call,
+  so every inputSchema here is the real published schema, not a reconstruction.
 server:
   name: FieldPulse Docs
   version: 1.0.0
@@ -22,41 +21,50 @@ server:
     resources:
       listChanged: true
   scope: documentation
-  note: 'The manifest also advertises the Mintlify-internal origin
-    https://fieldpulse.main-kill-isr.mintlify.me/mcp; the provider-branded endpoint
-    at help.fieldpulse.com/mcp is the one recorded here. GET returns 405 Method not
-    allowed — the endpoint is POST-only JSON-RPC.'
+  note: The manifest also advertises the Mintlify-internal origin https://fieldpulse.main-kill-isr.mintlify.me/mcp;
+    the provider-branded endpoint at help.fieldpulse.com/mcp is the one recorded here. GET returns 405
+    Method not allowed — the endpoint is POST-only JSON-RPC.
 tools:
 - name: search_field_pulse_docs
   title: Search documentation
-  description: Search across the FieldPulse Docs knowledge base to find relevant information,
-    code examples, API references, and guides. Returns contextual content with titles
-    and direct links to documentation pages.
+  description: Search across the FieldPulse Docs knowledge base to find relevant information, code examples,
+    API references, and guides. Returns contextual content with titles and direct links to documentation
+    pages.
   input_schema:
     type: object
     properties:
       query:
         type: string
         description: Search query
-    required: [query]
-  annotations: {readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false}
+    required:
+    - query
+  annotations:
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
 - name: query_docs_filesystem_field_pulse_docs
-  description: Run a read-only shell-like query (head, cat, rg, tree, ls) against a
-    virtualized in-memory filesystem containing only the FieldPulse documentation pages
-    and OpenAPI specs. This is how a page is read — there is no separate get-page tool.
+  description: Run a read-only shell-like query (head, cat, rg, tree, ls) against a virtualized in-memory
+    filesystem containing only the FieldPulse documentation pages and OpenAPI specs. This is how a page
+    is read — there is no separate get-page tool.
   input_schema:
     type: object
     properties:
       command:
         type: string
-        description: 'A shell command to run against the virtualized documentation
-          filesystem (e.g. `rg -il "keyword" /`, `tree / -L 2`, `head -80 /path/file.mdx`).'
-    required: [command]
-  annotations: {readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false}
+        description: A shell command to run against the virtualized documentation filesystem (e.g. `rg
+          -il "keyword" /`, `tree / -L 2`, `head -80 /path/file.mdx`).
+    required:
+    - command
+  annotations:
+    readOnlyHint: true
+    destructiveHint: false
+    idempotentHint: true
+    openWorldHint: false
 - name: submit_feedback
   title: Submit documentation feedback
-  description: Report a problem with the documentation site so the docs team can fix
-    it. For documentation content issues only, not product support.
+  description: Report a problem with the documentation site so the docs team can fix it. For documentation
+    content issues only, not product support.
   input_schema:
     type: object
     properties:
@@ -66,23 +74,47 @@ tools:
       feedback:
         type: string
         description: A clear description of the documentation issue or suggestion.
-    required: [path, feedback]
-  annotations: {readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true}
+    required:
+    - path
+    - feedback
+  annotations:
+    readOnlyHint: false
+    destructiveHint: false
+    idempotentHint: false
+    openWorldHint: true
 resources:
 - uri: mintlify://skills/fieldpulse
   name: fieldpulse
   mime_type: text/markdown
-  description: The published FieldPulse agent skill, also served at
-    https://help.fieldpulse.com/.well-known/agent-skills/fieldpulse/skill.md
+  description: The published FieldPulse agent skill, also served at https://help.fieldpulse.com/.well-known/agent-skills/fieldpulse/skill.md
 gaps:
-- No MCP server wraps the FieldPulse Open API itself — the 109 REST operations are
-  not exposed as MCP tools. An agent can read the documentation through MCP but must
-  call the REST API directly to act.
+- No MCP server wraps the FieldPulse Open API itself — the 109 REST operations are not exposed as MCP
+  tools. An agent can read the documentation through MCP but must call the REST API directly to act.
 x-evidence:
   fetched: '2026-08-04'
   probes:
-  - {url: 'https://help.fieldpulse.com/.well-known/mcp.json', method: GET, http_status: 200}
-  - {url: 'https://help.fieldpulse.com/mcp', method: GET, http_status: 405}
-  - {url: 'https://help.fieldpulse.com/mcp', method: 'POST initialize', http_status: 200}
-  - {url: 'https://help.fieldpulse.com/mcp', method: 'POST tools/list', http_status: 200, tools: 3}
-  - {url: 'https://help.fieldpulse.com/mcp', method: 'POST resources/list', http_status: 200, resources: 1}
+  - url: https://help.fieldpulse.com/.well-known/mcp.json
+    method: GET
+    http_status: 200
+  - url: https://help.fieldpulse.com/mcp
+    method: GET
+    http_status: 405
+  - url: https://help.fieldpulse.com/mcp
+    method: POST initialize
+    http_status: 200
+  - url: https://help.fieldpulse.com/mcp
+    method: POST tools/list
+    http_status: 200
+    tools: 3
+  - url: https://help.fieldpulse.com/mcp
+    method: POST resources/list
+    http_status: 200
+    resources: 1
+deployment:
+  mode: remote
+  endpoint: https://help.fieldpulse.com/mcp
+  verified: probed
+  probe: live
+  tools: 3
+  checked: '2026-08-12'
+  source: catalog MCP census

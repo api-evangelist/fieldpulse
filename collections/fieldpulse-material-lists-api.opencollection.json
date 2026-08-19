@@ -1,0 +1,328 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FieldPulse Material Lists API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Material Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Connect Material List to entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/material-lists/:id/connect",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Connect Material List to entity"
+        },
+        {
+          "info": {
+            "name": "Disconnect Material List from entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/material-lists/:id/disconnect",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disconnect Material List from entity"
+        },
+        {
+          "info": {
+            "name": "Connect Material List item to entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/material-lists/:id/item-connect",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Connect Material List item to entity"
+        },
+        {
+          "info": {
+            "name": "Get Material List by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/material-list/:id",
+            "params": [
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "asn",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              },
+              {
+                "name": "withCustomfieldsAndRelatedData",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "If true, response will contain custom fields data"
+              },
+              {
+                "name": "by_view",
+                "value": "<string>",
+                "type": "query",
+                "description": "Filter by view mode. Acceptable values all, team, my"
+              },
+              {
+                "name": "by_entity",
+                "value": "<string>",
+                "type": "query",
+                "description": "Filter by entity. Acceptable values job, project, invoice, order, estimate. Required if entity_id is provided"
+              },
+              {
+                "name": "by_entity_id",
+                "value": "<integer>",
+                "type": "query",
+                "description": "Filter by existing entity id listed for by_entity parameter"
+              },
+              {
+                "name": "from_job_start_time",
+                "value": "<timestamp>",
+                "type": "query",
+                "description": "Filter by job start time"
+              },
+              {
+                "name": "to_job_end_time",
+                "value": "<timestamp>",
+                "type": "query",
+                "description": "Filter by job end time"
+              },
+              {
+                "name": "unscheduled",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "Filter by unscheduled jobs"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Material List by ID"
+        },
+        {
+          "info": {
+            "name": "Update Material List by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/material-list/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Material List by ID"
+        },
+        {
+          "info": {
+            "name": "Delete Material List by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/material-list/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Material List by ID"
+        },
+        {
+          "info": {
+            "name": "Get list of Material Lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/material-lists",
+            "params": [
+              {
+                "name": "page",
+                "value": "<string>",
+                "type": "query",
+                "description": "Page number. Starts from 1, defaults to 1."
+              },
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 50 items per page"
+              },
+              {
+                "name": "search",
+                "value": "<string>",
+                "type": "query",
+                "description": "Search string."
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "asn",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "if true, response will contain total_count"
+              },
+              {
+                "name": "withCustomfieldsAndRelatedData",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "If true, response will contain custom fields data"
+              },
+              {
+                "name": "by_view",
+                "value": "<string>",
+                "type": "query",
+                "description": "Filter by view mode. Acceptable values all, team, my"
+              },
+              {
+                "name": "by_entity",
+                "value": "<string>",
+                "type": "query",
+                "description": "Filter by entity. Acceptable values job, project, invoice, order, estimate. Required if entity_id is provided"
+              },
+              {
+                "name": "by_entity_id",
+                "value": "<integer>",
+                "type": "query",
+                "description": "Filter by existing entity id listed for by_entity parameter"
+              },
+              {
+                "name": "from_job_start_time",
+                "value": "<timestamp>",
+                "type": "query",
+                "description": "Filter by job start time"
+              },
+              {
+                "name": "to_job_end_time",
+                "value": "<timestamp>",
+                "type": "query",
+                "description": "Filter by job end time"
+              },
+              {
+                "name": "unscheduled",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "Filter by unscheduled jobs"
+              }
+            ]
+          },
+          "docs": "Get list of Material Lists"
+        },
+        {
+          "info": {
+            "name": "Create Material List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/material-list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Material List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,285 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Custom Fields API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Custom Fields
+  description: Endpoints related to custom fields
+paths:
+  /custom-fields/{customfieldId}:
+    get:
+      tags:
+      - Custom Fields
+      summary: Retrieve a custom field by ID
+      parameters:
+      - name: customfieldId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getCustomFieldsByCustomfieldId
+    put:
+      tags:
+      - Custom Fields
+      summary: Update custom field by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: some string
+                position: 0
+                permission: 1,2,3
+                is_active: true
+                object: customer
+                can_customer_view: true
+                field_widget_id: 1
+                settings:
+                  field_instance_id: 1
+                  allowed_values:
+                  - value_1
+                  - value_2
+                  default_value: value_1
+      parameters:
+      - name: customfieldId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putCustomFieldsByCustomfieldId
+    delete:
+      tags:
+      - Custom Fields
+      summary: Delete custom field by ID
+      parameters:
+      - name: customfieldId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deleteCustomFieldsByCustomfieldId
+  /custom-fields:
+    get:
+      tags:
+      - Custom Fields
+      summary: Retrieve custom fields list
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: object_type
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: customer, job, invoice, item, maintenance_agreement, project, asset, material_list.'
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getCustomFields
+    post:
+      tags:
+      - Custom Fields
+      summary: Create a custom field
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: some string
+                position: 0
+                permission: 1,2,3
+                is_active: true
+                object: customer
+                can_customer_view: true
+                field_widget_id: 1
+                settings:
+                  field_instance_id: 1
+                  allowed_values:
+                  - value_1
+                  - value_2
+                  default_value: value_1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postCustomFields
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

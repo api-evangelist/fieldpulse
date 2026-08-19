@@ -1,0 +1,313 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FieldPulse Jobs API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve job status workflows list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/jobs/status-workflows",
+            "params": [
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "true or false. If true, in response will be included also total count"
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              }
+            ]
+          },
+          "docs": "List job status workflows"
+        },
+        {
+          "info": {
+            "name": "Retrieve job status workflow statuses list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/jobs/status-workflow-statuses",
+            "params": [
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "calculate_count",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "true or false. If true, in response will be included also total count"
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              }
+            ]
+          },
+          "docs": "List job status workflow statuses"
+        },
+        {
+          "info": {
+            "name": "Retrieve job by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/jobs/:jobId",
+            "params": [
+              {
+                "name": "with_custom_fields",
+                "value": "<bool>",
+                "type": "query",
+                "description": "Optional. Possible values are true or false. If true, the response will contain custom fileds data in customfields_with_related_data key"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a job by ID"
+        },
+        {
+          "info": {
+            "name": "Update job by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a job"
+        },
+        {
+          "info": {
+            "name": "Delete job by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a job"
+        },
+        {
+          "info": {
+            "name": "Get Job QB Classes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/jobs/qb-classes",
+            "params": [
+              {
+                "name": "active",
+                "value": "<boolean>",
+                "type": "query",
+                "description": "Optional. Values true/false. If true, will return active. If false, will return not active. If not provided, will return all "
+              },
+              {
+                "name": "limit",
+                "value": "<integer>",
+                "type": "query",
+                "description": "Default 20. Maximum 100"
+              }
+            ]
+          },
+          "docs": "Get Job QB Classes"
+        },
+        {
+          "info": {
+            "name": "Retrieve jobs list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/jobs",
+            "params": [
+              {
+                "name": "page",
+                "value": "<string>",
+                "type": "query",
+                "description": "Page number. Starts from 1, defaults to 1."
+              },
+              {
+                "name": "limit",
+                "value": "<string>",
+                "type": "query",
+                "description": "Defaults to 20 items per page, maximum 100 items allowed."
+              },
+              {
+                "name": "search",
+                "value": "<string>",
+                "type": "query",
+                "description": "Search string."
+              },
+              {
+                "name": "sort_by",
+                "value": "<string>",
+                "type": "query",
+                "description": "Allowed values: created_at, updated_at."
+              },
+              {
+                "name": "sort_dir",
+                "value": "<string>",
+                "type": "query",
+                "description": "Allowed values: asc, desc"
+              },
+              {
+                "name": "created_from",
+                "value": "<string>",
+                "type": "query",
+                "description": "Job's created_at UNIX timestamp."
+              },
+              {
+                "name": "created_to",
+                "value": "<string>",
+                "type": "query",
+                "description": "Job's created_at UNIX timestamp."
+              },
+              {
+                "name": "status_id",
+                "value": "<string>",
+                "type": "query",
+                "description": "Comma separated custom status ids"
+              },
+              {
+                "name": "with_custom_fields",
+                "value": "<bool>",
+                "type": "query",
+                "description": "Optional. Possible values are true or false. If true, the response will contain custom fileds data in customfields_with_related_data key"
+              },
+              {
+                "name": "qb_class",
+                "value": "<string>",
+                "type": "query",
+                "description": "Parameter for filtering by quickbook class name."
+              },
+              {
+                "name": "filter",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute, operator, and value parts."
+              },
+              {
+                "name": "asn",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both."
+              },
+              {
+                "name": "sort",
+                "value": "<array>",
+                "type": "query",
+                "description": "Array of attribute and order values."
+              },
+              {
+                "name": "rel",
+                "value": "<array>",
+                "type": "query",
+                "description": "array consisting of indices with the desired relation to include"
+              }
+            ]
+          },
+          "docs": "List a collection of jobs"
+        },
+        {
+          "info": {
+            "name": "Create a job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a job"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

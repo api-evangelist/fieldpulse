@@ -1,0 +1,395 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Items API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Items
+paths:
+  /items/{id}:
+    get:
+      tags:
+      - Items
+      summary: Retrieve item by ID
+      description: Retrieve an invoice item by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getItemsById
+    put:
+      tags:
+      - Items
+      summary: Update by Id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: ''
+                default_taxable: ''
+                default_description: ''
+                type: ''
+                sku: ''
+                default_unit_price: ''
+                default_unit_cost: ''
+                default_quantity: ''
+                track_inventory: ''
+                is_active: ''
+                xero_sales_account: ''
+                xero_tax_account: ''
+                tax_rate: ''
+                vendor_id: ''
+                vendor_type: ''
+                vendor_name: ''
+                supplier_item_id: ''
+                is_automatic_replenishment_by_purchase_order_enabled: ''
+                auto_reorder_level: ''
+                replenishment_level: ''
+                minimum_order_quantity: ''
+                price_update_method: ''
+                automatic_markup_percentage: ''
+                inventory_mode: ''
+                qbo_sales_tax_code_id: ''
+                qbo_purchase_tax_code_id: ''
+                qbo_income_account_id: ''
+                qbo_expense_account_id: ''
+                qbo_asset_account_id: ''
+                qbo_id: ''
+                quantity_available: ''
+                unit_measure: ''
+                external_id: ''
+                external_type: ''
+                external_sync_status: ''
+                upc: ''
+                unit_cost_per_unit_measure: ''
+                unit_price_per_unit_measure: ''
+                minimum_dimensional_size: ''
+                maximum_dimensional_size: ''
+                is_round_up_to_even_dimensional_size: ''
+                is_labor_item: ''
+                inventory_hub_items:
+                - inventory_hub_id: ''
+                  is_automatic_replenishment_by_purchase_order_enabled: ''
+                  auto_reorder_level: ''
+                  replenishment_level: ''
+                  quantity_available: ''
+                - inventory_hub_id: ''
+                  is_automatic_replenishment_by_purchase_order_enabled: ''
+                  auto_reorder_level: ''
+                  replenishment_level: ''
+                  quantity_available: ''
+                item_links:
+                - item_id: ''
+                  name: ''
+                  url: ''
+                - item_id: ''
+                  name: ''
+                  url: ''
+                serialized_inventories:
+                - serial_number: ''
+                  reference_number: ''
+                  asset_template_id: ''
+                  invoice_id: ''
+                  hub_id: ''
+                  id_number: ''
+                  default_unit_cost: ''
+                - serial_number: ''
+                  reference_number: ''
+                  asset_template_id: ''
+                  invoice_id: ''
+                  hub_id: ''
+                  id_number: ''
+                  default_unit_cost: ''
+                item_price_tiers:
+                - tier_id: ''
+                  adjustment_property: ''
+                  adjustment_value: ''
+                - tier_id: ''
+                  adjustment_property: ''
+                  adjustment_value: ''
+                customfields:
+                - id: ''
+                  field_instance_id: ''
+                  value: ''
+                - id: ''
+                  field_instance_id: ''
+                  value: ''
+                tags: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putItemsById
+  /items:
+    get:
+      tags:
+      - Items
+      summary: Retrieve items list
+      description: List invoice items
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getItems
+    post:
+      tags:
+      - Items
+      summary: Create item
+      description: Create an invoice item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: ''
+                default_taxable: ''
+                default_description: ''
+                type: ''
+                sku: ''
+                default_unit_price: ''
+                default_unit_cost: ''
+                default_quantity: ''
+                track_inventory: ''
+                is_active: ''
+                xero_sales_account: ''
+                xero_tax_account: ''
+                tax_rate: ''
+                vendor_id: ''
+                vendor_type: ''
+                vendor_name: ''
+                supplier_item_id: ''
+                is_automatic_replenishment_by_purchase_order_enabled: ''
+                auto_reorder_level: ''
+                replenishment_level: ''
+                minimum_order_quantity: ''
+                price_update_method: ''
+                automatic_markup_percentage: ''
+                inventory_mode: ''
+                qbo_sales_tax_code_id: ''
+                qbo_purchase_tax_code_id: ''
+                qbo_income_account_id: ''
+                qbo_expense_account_id: ''
+                qbo_asset_account_id: ''
+                qbo_id: ''
+                quantity_available: ''
+                unit_measure: ''
+                external_id: ''
+                external_type: ''
+                external_sync_status: ''
+                upc: ''
+                unit_cost_per_unit_measure: ''
+                unit_price_per_unit_measure: ''
+                minimum_dimensional_size: ''
+                maximum_dimensional_size: ''
+                is_round_up_to_even_dimensional_size: ''
+                is_labor_item: ''
+                inventory_hub_items:
+                - inventory_hub_id: ''
+                  is_automatic_replenishment_by_purchase_order_enabled: ''
+                  auto_reorder_level: ''
+                  replenishment_level: ''
+                  quantity_available: ''
+                - inventory_hub_id: ''
+                  is_automatic_replenishment_by_purchase_order_enabled: ''
+                  auto_reorder_level: ''
+                  replenishment_level: ''
+                  quantity_available: ''
+                item_links:
+                - item_id: ''
+                  name: ''
+                  url: ''
+                - item_id: ''
+                  name: ''
+                  url: ''
+                serialized_inventories:
+                - serial_number: ''
+                  reference_number: ''
+                  asset_template_id: ''
+                  invoice_id: ''
+                  hub_id: ''
+                  id_number: ''
+                  default_unit_cost: ''
+                - serial_number: ''
+                  reference_number: ''
+                  asset_template_id: ''
+                  invoice_id: ''
+                  hub_id: ''
+                  id_number: ''
+                  default_unit_cost: ''
+                item_price_tiers:
+                - tier_id: ''
+                  adjustment_property: ''
+                  adjustment_value: ''
+                - tier_id: ''
+                  adjustment_property: ''
+                  adjustment_value: ''
+                customfields:
+                - id: ''
+                  field_instance_id: ''
+                  value: ''
+                - id: ''
+                  field_instance_id: ''
+                  value: ''
+                tags: ''
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+      operationId: postItems
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key

@@ -1,0 +1,469 @@
+openapi: 3.2.0
+info:
+  title: FieldPulse Jobs API
+  description: 'REST API for the FieldPulse field service management platform.
+
+
+    **Authentication:** All requests require an `x-api-key` header. Contact support@fieldpulse.com to obtain your API key.
+
+
+    **Important:** The API Playground below makes live requests against your production data. Use caution when testing write operations (POST, PUT, DELETE).'
+  version: 1.0.0
+servers:
+- url: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
+  description: Production
+security:
+- apiKeyAuth: []
+tags:
+- name: Jobs
+paths:
+  /jobs/status-workflows:
+    get:
+      tags:
+      - Jobs
+      summary: Retrieve job status workflows list
+      description: List job status workflows
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getJobsStatusWorkflows
+  /jobs/status-workflow-statuses:
+    get:
+      tags:
+      - Jobs
+      summary: Retrieve job status workflow statuses list
+      description: List job status workflow statuses
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: calculate_count
+        in: query
+        schema:
+          type: string
+        description: true or false. If true, in response will be included also total count
+        example: <boolean>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+      operationId: getJobsStatusWorkflowStatuses
+  /jobs/{jobId}:
+    get:
+      tags:
+      - Jobs
+      summary: Retrieve job by ID
+      description: Retrieve a job by ID
+      parameters:
+      - name: with_custom_fields
+        in: query
+        schema:
+          type: string
+        description: Optional. Possible values are true or false. If true, the response will contain custom fileds data in customfields_with_related_data key
+        example: <bool>
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getJobsByJobId
+    put:
+      tags:
+      - Jobs
+      summary: Update job by ID
+      description: Update a job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: putJobsByJobId
+    delete:
+      tags:
+      - Jobs
+      summary: Delete job by ID
+      description: Delete a job
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL or object not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: deleteJobsByJobId
+  /jobs/qb-classes:
+    get:
+      tags:
+      - Jobs
+      summary: Get Job QB Classes
+      parameters:
+      - name: active
+        in: query
+        schema:
+          type: string
+        description: 'Optional. Values true/false. If true, will return active. If false, will return not active. If not provided, will return all '
+        example: <boolean>
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Default 20. Maximum 100
+        example: <integer>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getJobsQbClasses
+  /jobs:
+    get:
+      tags:
+      - Jobs
+      summary: Retrieve jobs list
+      description: List a collection of jobs
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: string
+        description: Page number. Starts from 1, defaults to 1.
+        example: <string>
+      - name: limit
+        in: query
+        schema:
+          type: string
+        description: Defaults to 20 items per page, maximum 100 items allowed.
+        example: <string>
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search string.
+        example: <string>
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: created_at, updated_at.'
+        example: <string>
+      - name: sort_dir
+        in: query
+        schema:
+          type: string
+        description: 'Allowed values: asc, desc'
+        example: <string>
+      - name: created_from
+        in: query
+        schema:
+          type: string
+        description: Job's created_at UNIX timestamp.
+        example: <string>
+      - name: created_to
+        in: query
+        schema:
+          type: string
+        description: Job's created_at UNIX timestamp.
+        example: <string>
+      - name: status_id
+        in: query
+        schema:
+          type: string
+        description: Comma separated custom status ids
+        example: <string>
+      - name: with_custom_fields
+        in: query
+        schema:
+          type: string
+        description: Optional. Possible values are true or false. If true, the response will contain custom fileds data in customfields_with_related_data key
+        example: <bool>
+      - name: qb_class
+        in: query
+        schema:
+          type: string
+        description: Parameter for filtering by quickbook class name.
+        example: <string>
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: Array of attribute, operator, and value parts.
+        example: <array>
+      - name: asn
+        in: query
+        schema:
+          type: string
+        description: Array or object containing either a team_id index, assigned_members index containing an array of member ids, or both.
+        example: <array>
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Array of attribute and order values.
+        example: <array>
+      - name: rel
+        in: query
+        schema:
+          type: string
+        description: array consisting of indices with the desired relation to include
+        example: <array>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: getJobs
+    post:
+      tags:
+      - Jobs
+      summary: Create a job
+      description: Create a job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: true
+                errors:
+                - error message
+                - error message
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              example:
+                message: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                message: Request URL not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                message: Internal Server Error
+      operationId: postJobs
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
