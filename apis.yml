@@ -37,6 +37,22 @@ tags:
 - Electrical
 - Work Order Management
 - CRM
+- Software-as-a-Service
+tags_raw:
+- Company
+- Field Service Management
+- Service Management
+- Scheduling
+- Dispatch
+- Invoicing
+- Estimates
+- Payments
+- Contractors
+- HVAC
+- Plumbing
+- Electrical
+- Work Order Management
+- CRM
 - SaaS
 apis:
 - aid: fieldpulse:fieldpulse-docs-mcp
@@ -280,6 +296,8 @@ apis:
   humanURL: https://help.fieldpulse.com/api-reference/overview
   baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -304,6 +322,8 @@ apis:
   humanURL: https://help.fieldpulse.com/api-reference/overview
   baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -448,6 +468,8 @@ apis:
   humanURL: https://help.fieldpulse.com/api-reference/overview
   baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -544,6 +566,8 @@ apis:
   humanURL: https://help.fieldpulse.com/api-reference/overview
   baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
@@ -592,6 +616,8 @@ apis:
   humanURL: https://help.fieldpulse.com/api-reference/overview
   baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
