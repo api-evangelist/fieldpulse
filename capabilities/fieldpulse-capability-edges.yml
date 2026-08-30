@@ -11,44 +11,52 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 4
+edge_count: 5
 edges:
 - tag: Purchase Orders
   spec_file: fieldpulse-purchase-orders-api-openapi.yml
   capability_id: BC-500.30
   capability_id_l1: BC-500
   capability_name: Purchase Order Management
-  confidence: 0.87
+  confidence: 0.9
   evidence: POST /purchase-orders  postPurchaseOrders  Create a puchase order
-  reason: Explicit create/read/update/delete of purchase orders is directly PO lifecycle management within
-    procurement.
+  reason: Full lifecycle CRUD over purchase orders is plainly purchase order creation, update and execution
+    within procurement.
 - tag: Customers
   spec_file: fieldpulse-customers-api-openapi.yml
   capability_id: BC-420.10
   capability_id_l1: BC-420
   capability_name: Customer Data Management
   confidence: 0.85
-  evidence: '"Create a customer", "Retrieve customers list", "Create a customer contact", "Update customer
-    contact by ID"'
-  reason: Full CRUD over customer master records and their associated contacts is customer data management
-    (maintaining the customer record/golden record) rather than any downstream sales or service activity.
-- tag: Estimates
-  spec_file: fieldpulse-estimates-api-openapi.yml
-  capability_id: BC-410.40
-  capability_id_l1: BC-410
-  capability_name: Quote & Configuration Management
-  confidence: 0.8
-  evidence: '"Create an estimate", "Retrieve estimates list", "Get Estimate QB Classes"'
-  reason: Estimates in a field service platform are priced customer quotes produced before work is sold,
-    which corresponds to quote management. Some chance the intended fit is broader sales opportunity handling,
-    hence 0.8.
+  evidence: '"Create a customer", "Retrieve customers list", "Create a customer contact"'
+  reason: CRUD over customer master records and their associated contacts is customer data management
+    within the FSM platform's CRM layer.
 - tag: Invoices
   spec_file: fieldpulse-invoices-api-openapi.yml
   capability_id: BC-200.30
   capability_id_l1: BC-200
   capability_name: Accounts Receivable Management
   confidence: 0.8
-  evidence: '"Create an invoice", "List invoices", "Update Invoice Prices", "Get Invoice QB Classes"'
-  reason: Generation and adjustment of customer invoices (with QuickBooks class mapping) is customer invoicing
-    under accounts receivable. Not a subscription/recurring model, so the SaaS billing capability does
-    not apply.
+  evidence: '"Create an invoice", "Update Invoice Prices", "Get Invoice QB Classes"'
+  reason: Creation and adjustment of customer invoices (with QuickBooks class mapping for accounting sync)
+    is customer invoicing, i.e. accounts receivable operations.
+- tag: Estimates
+  spec_file: fieldpulse-estimates-api-openapi.yml
+  capability_id: BC-410.40
+  capability_id_l1: BC-410
+  capability_name: Quote & Configuration Management
+  confidence: 0.78
+  evidence: '"Create an estimate", "Retrieve estimates list", vendor description mentions "scheduling
+    and dispatch, customer and job management, est[imates]"'
+  reason: Estimates in a contractor FSM platform are priced customer quotes for work, matching quote and
+    configuration management in the lead-to-order flow.
+- tag: Payments
+  spec_file: fieldpulse-payments-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.7
+  evidence: POST /payments  postPayments  Create a payment
+  reason: In an FSM platform with invoicing, payment records represent customer payments applied against
+    invoices, which is accounts receivable / cash application. Some residual ambiguity (could include
+    vendor payments), hence moderate confidence.
