@@ -789,6 +789,8 @@ common:
   url: rate-limits/fieldpulse-rate-limits.yml
 - type: Examples
   url: examples/fieldpulse-examples.yml
+- type: Contact
+  url: mailto:support@fieldpulse.com
 x-enrichment:
   date: '2026-08-04'
   status: enriched
