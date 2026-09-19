@@ -400,6 +400,8 @@ apis:
   humanURL: https://help.fieldpulse.com/api-reference/overview
   baseURL: https://ywe3crmpll.execute-api.us-east-2.amazonaws.com/stage
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
