@@ -246,7 +246,6 @@ paths:
       tags:
       - Projects
       summary: Create a project
-      description: Create a project
       requestBody:
         content:
           application/json:

@@ -254,7 +254,6 @@ paths:
       tags:
       - Subtasks
       summary: Create a subtask
-      description: Create a subtask
       requestBody:
         content:
           application/json:

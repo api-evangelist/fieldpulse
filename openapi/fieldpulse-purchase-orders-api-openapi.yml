@@ -253,7 +253,6 @@ paths:
       tags:
       - Purchase Orders
       summary: Create a puchase order
-      description: Create a puchase order
       requestBody:
         content:
           application/json:

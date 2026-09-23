@@ -242,7 +242,6 @@ paths:
       tags:
       - Timesheets
       summary: Create a timesheet
-      description: Create a timesheet
       requestBody:
         content:
           application/json:

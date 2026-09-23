@@ -421,7 +421,6 @@ paths:
       tags:
       - Jobs
       summary: Create a job
-      description: Create a job
       requestBody:
         content:
           application/json:

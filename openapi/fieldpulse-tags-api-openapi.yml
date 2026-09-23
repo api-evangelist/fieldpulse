@@ -218,7 +218,6 @@ paths:
       tags:
       - Tags
       summary: Create a tag
-      description: Create a tag
       requestBody:
         content:
           application/json:
