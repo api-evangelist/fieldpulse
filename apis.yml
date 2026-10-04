@@ -50,6 +50,9 @@ specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 image: https://www.fieldpulse.com/logo.png
+x-docs-platform: mintlify
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-10-03
 tags:
 - Company
 - Field Service Management
