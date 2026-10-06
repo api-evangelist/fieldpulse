@@ -48,7 +48,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-08-04'
-modified: '2026-08-04'
+modified: '2026-10-06'
 image: https://www.fieldpulse.com/logo.png
 x-docs-platform: mintlify
 x-docs-platform-confidence: medium
@@ -725,6 +725,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://www.fieldpulse.com/resources/blog
+  type: Blog
 - type: CapabilityMap
   url: capabilities/fieldpulse-capability-edges.yml
   name: FieldPulse Business Capability Map
