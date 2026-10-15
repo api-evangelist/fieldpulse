@@ -7,6 +7,7 @@ checked:
 - https://composio.dev/toolkits/fieldpulse
 - https://monid.ai/tools/fieldpulse
 - https://n8n.io/integrations/fieldpulse/
+- https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/fieldpulse/integrations
 summary: null
 marketplace_apps:
@@ -412,6 +413,31 @@ edges:
     detected_by: sweep-ai-agents.py
     detected: '2026-10-15'
   detected_by: sweep-ai-agents.py
+  first_seen: '2026-10-15'
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/fieldpulse/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: FieldPulse
+    matched_domain: fieldpulse.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: fieldpulse
+    beta: false
+    builder: unknown (not in the directory record)
+  detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
 templates:
 - title: Create neighborhood visits in StreetFair for new jobs created in FieldPulse
