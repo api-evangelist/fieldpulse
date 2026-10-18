@@ -4,6 +4,7 @@ generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
 - HVAC & Building Automation Systems
+- Manufacturing & Industrial
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,7 +12,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 5
+edge_count: 7
 edges:
 - tag: Purchase Orders
   spec_file: fieldpulse-purchase-orders-api-openapi.yml
@@ -50,13 +51,33 @@ edges:
     and dispatch, customer and job management, est[imates]"'
   reason: Estimates in a contractor FSM platform are priced customer quotes for work, matching quote and
     configuration management in the lead-to-order flow.
+- tag: Jobs
+  spec_file: fieldpulse-jobs-api-openapi.yml
+  capability_id: BC-1050.30
+  capability_id_l1: BC-1050
+  capability_name: Service Execution Management
+  confidence: 0.75
+  evidence: GET /jobs/status-workflows "Retrieve job status workflows list"; POST /jobs "Create a job"
+  reason: Jobs are the core work units of a field service management platform, with status workflows tracking
+    on-site execution; maps to Field Service Management, most plausibly Service Execution Management,
+    though it also touches request capture and dispatch.
 - tag: Payments
   spec_file: fieldpulse-payments-api-openapi.yml
   capability_id: BC-200.30
   capability_id_l1: BC-200
   capability_name: Accounts Receivable Management
+  confidence: 0.72
+  evidence: POST /payments "Create a payment"; GET /payments "Retrieve payments list"
+  reason: Recording of customer payments against work on a contractor billing platform corresponds to
+    cash application within Accounts Receivable. Direction (customer receipts vs vendor payments) is inferred
+    from the FSM invoicing context rather than stated, so confidence is moderate.
+- tag: Timesheets
+  spec_file: fieldpulse-timesheets-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
   confidence: 0.7
-  evidence: POST /payments  postPayments  Create a payment
-  reason: In an FSM platform with invoicing, payment records represent customer payments applied against
-    invoices, which is accounts receivable / cash application. Some residual ambiguity (could include
-    vendor payments), hence moderate confidence.
+  evidence: POST /timesheets  postTimesheets  Create a timesheet
+  reason: Full CRUD over employee timesheets in a field service platform — labour time capture feeding
+    payroll/HR administration, which maps to HR Operations Management. Some ambiguity (could also serve
+    job costing), hence moderate confidence.
