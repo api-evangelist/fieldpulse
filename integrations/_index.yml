@@ -14,6 +14,7 @@
   evidence: https://zapier.com/apps/fieldpulse/integrations/streetfair/255607864/create-neighborhood-visits-in-streetfair-for-new-jobs-created-in-fieldpulse
   template: https://zapier.com/apps/fieldpulse/integrations/streetfair/255607864/create-neighborhood-visits-in-streetfair-for-new-jobs-created-in-fieldpulse
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: fieldpulse-create-fieldpulse-customers-when-pipeline-stages-change-in-leadconnector
@@ -27,6 +28,7 @@
   evidence: https://zapier.com/apps/fieldpulse/integrations/leadconnector/1744864/create-fieldpulse-customers-when-pipeline-stages-change-in-leadconnector
   template: https://zapier.com/apps/fieldpulse/integrations/leadconnector/1744864/create-fieldpulse-customers-when-pipeline-stages-change-in-leadconnector
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: fieldpulse-create-new-hubspot-contacts-from-new-fieldpulse-customers
@@ -41,6 +43,7 @@
   evidence: https://zapier.com/apps/fieldpulse/integrations/hubspot/1639117/create-new-hubspot-contacts-from-new-fieldpulse-customers
   template: https://zapier.com/apps/fieldpulse/integrations/hubspot/1639117/create-new-hubspot-contacts-from-new-fieldpulse-customers
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: fieldpulse-create-fieldpulse-leads-from-new-gravity-forms-submissions
@@ -55,6 +58,7 @@
   evidence: https://zapier.com/apps/fieldpulse/integrations/gravity-forms/1425335/create-fieldpulse-leads-from-new-gravity-forms-submissions
   template: https://zapier.com/apps/fieldpulse/integrations/gravity-forms/1425335/create-fieldpulse-leads-from-new-gravity-forms-submissions
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: fieldpulse-create-fieldpulse-leads-from-new-google-sheets-rows
@@ -69,6 +73,7 @@
   evidence: https://zapier.com/apps/fieldpulse/integrations/google-sheets/1226149/create-fieldpulse-leads-from-new-google-sheets-rows
   template: https://zapier.com/apps/fieldpulse/integrations/google-sheets/1226149/create-fieldpulse-leads-from-new-google-sheets-rows
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: fieldpulse-create-fieldpulse-leads-for-new-or-updated-hubspot-companies
@@ -83,320 +88,8 @@
   evidence: https://zapier.com/apps/fieldpulse/integrations/hubspot/1392843/create-fieldpulse-leads-for-new-or-updated-hubspot-companies
   template: https://zapier.com/apps/fieldpulse/integrations/hubspot/1392843/create-fieldpulse-leads-for-new-or-updated-hubspot-companies
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
-  arazzo: null
-- slug: fieldpulse-gmail
-  label: Gmail
-  partner: gmail
-  partner_name: Gmail
-  category: Email
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/gmail
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-google-drive
-  label: Google Drive
-  partner: google-drive
-  partner_name: Google Drive
-  category: File Management & Storage
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/google-drive
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-salesforce
-  label: Salesforce
-  partner: salesforce
-  partner_name: Salesforce
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/salesforce
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-pulsem
-  label: pulseM
-  partner_name: pulseM
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/pulsem
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-ringcentral
-  label: RingCentral
-  partner: ringcentral
-  partner_name: RingCentral
-  category: Phone & SMS
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/ringcentral
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-mailchimp
-  label: Mailchimp
-  partner: mailchimp
-  partner_name: Mailchimp
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/mailchimp
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-google-calendar
-  label: Google Calendar
-  partner: google-calendar
-  partner_name: Google Calendar
-  category: Calendar
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/google-calendar
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-wix
-  label: Wix
-  partner: wix
-  partner_name: Wix
-  category: Website Builders
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/wix
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-birdeye
-  label: Birdeye
-  partner: birdeye
-  partner_name: Birdeye
-  category: Reviews
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/birdeye
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-google-forms-legacy
-  label: Google Forms (Legacy)
-  partner_name: Google Forms (Legacy)
-  category: Forms & Surveys
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/google-forms-legacy
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-answerforce
-  label: AnswerForce
-  partner_name: AnswerForce
-  category: Customer Support
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/answerforce
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-youcanbookme
-  label: YouCanBookMe
-  partner_name: YouCanBookMe
-  category: Scheduling & Booking
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/youcanbookme
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-facebook-conversions
-  label: Facebook Conversions
-  partner_name: Facebook Conversions
-  category: Ads & Conversion
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/facebook-conversions
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-wordpress
-  label: WordPress
-  partner: wordpress
-  partner_name: WordPress
-  category: Website Builders
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/wordpress
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-spotio
-  label: Spotio
-  partner: spotio
-  partner_name: Spotio
-  category: Sales & CRM
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/spotio2
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-portal-io
-  label: Portal.io
-  partner_name: Portal.io
-  category: Proposal & Invoice Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/portalio
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-yelp-leads
-  label: Yelp Leads
-  partner: yelp
-  partner_name: Yelp Leads
-  category: Ads & Conversion
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/yelp-leads
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-vbout
-  label: VBOUT
-  partner: vbout
-  partner_name: VBOUT
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/vbout
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-upfirst
-  label: Upfirst
-  partner_name: Upfirst
-  category: AI Assistants
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/upfirst
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-review-harvest
-  label: Review Harvest
-  partner_name: Review Harvest
-  category: Reviews
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/review-harvest
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-marketing-360
-  label: Marketing 360
-  partner_name: Marketing 360
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/marketing-360
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-trello
-  label: Trello
-  partner: trello
-  partner_name: Trello
-  category: Project Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/trello
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-evernote
-  label: Evernote
-  partner: evernote
-  partner_name: Evernote
-  category: Notes
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/evernote
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-postgresql
-  label: PostgreSQL
-  partner: postgresql
-  partner_name: PostgreSQL
-  category: Databases
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/postgresql
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: fieldpulse-zoho-desk
-  label: Zoho Desk
-  partner: zoho-desk
-  partner_name: Zoho Desk
-  category: Customer Support
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/fieldpulse/integrations/zoho-desk
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: fieldpulse-a2a-protocol-own-agent-card
-  label: A2A protocol (own Agent Card)
-  partner_name: A2A protocol (own Agent Card)
-  category: A2A agent
-  type: register
-  channel: provider-built
-  evidence: https://help.fieldpulse.com/.well-known/agent-card.json
-  source: edge
-  relationship: compatible
-  contract_reference:
-    register: provider's own /.well-known/agent-card.json
-    spec_file: null
-    standard: A2A
-    role: a2a-agent-card
-    registered_name: FieldPulse Help Center
-    organization: FieldPulse Docs
-    matched_domain: fieldpulse.com
-    matched_by: own-domain
-    detected_by: sweep-ai-agents.py
-    detected: '2026-10-15'
-  status: not-a-workflow
   arazzo: null
 - slug: fieldpulse-zapier
   label: Zapier
@@ -422,4 +115,344 @@
     beta: false
     builder: unknown (not in the directory record)
   status: not-a-workflow
+  arazzo: null
+- slug: fieldpulse-a2a-protocol-own-agent-card
+  label: A2A protocol (own Agent Card)
+  partner_name: A2A protocol (own Agent Card)
+  category: A2A agent
+  type: register
+  channel: provider-built
+  evidence: https://help.fieldpulse.com/.well-known/agent-card.json
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: provider's own /.well-known/agent-card.json
+    spec_file: null
+    standard: A2A
+    role: a2a-agent-card
+    registered_name: FieldPulse Help Center
+    organization: FieldPulse Docs
+    matched_domain: fieldpulse.com
+    matched_by: own-domain
+    detected_by: sweep-ai-agents.py
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: fieldpulse-gmail
+  label: Gmail
+  partner: gmail
+  partner_name: Gmail
+  category: Email
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/gmail
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-google-drive
+  label: Google Drive
+  partner: google-drive
+  partner_name: Google Drive
+  category: File Management & Storage
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/google-drive
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-salesforce
+  label: Salesforce
+  partner: salesforce
+  partner_name: Salesforce
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/salesforce
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-pulsem
+  label: pulseM
+  partner_name: pulseM
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/pulsem
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-ringcentral
+  label: RingCentral
+  partner: ringcentral
+  partner_name: RingCentral
+  category: Phone & SMS
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/ringcentral
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-mailchimp
+  label: Mailchimp
+  partner: mailchimp
+  partner_name: Mailchimp
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/mailchimp
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-google-calendar
+  label: Google Calendar
+  partner: google-calendar
+  partner_name: Google Calendar
+  category: Calendar
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/google-calendar
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-wix
+  label: Wix
+  partner: wix
+  partner_name: Wix
+  category: Website Builders
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/wix
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-birdeye
+  label: Birdeye
+  partner: birdeye
+  partner_name: Birdeye
+  category: Reviews
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/birdeye
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-google-forms-legacy
+  label: Google Forms (Legacy)
+  partner: google-forms
+  partner_name: Google Forms (Legacy)
+  category: Forms & Surveys
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/google-forms-legacy
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-answerforce
+  label: AnswerForce
+  partner_name: AnswerForce
+  category: Customer Support
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/answerforce
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-youcanbookme
+  label: YouCanBookMe
+  partner_name: YouCanBookMe
+  category: Scheduling & Booking
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/youcanbookme
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-facebook-conversions
+  label: Facebook Conversions
+  partner: facebook
+  partner_name: Facebook Conversions
+  category: Ads & Conversion
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/facebook-conversions
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-wordpress
+  label: WordPress
+  partner: wordpress
+  partner_name: WordPress
+  category: Website Builders
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/wordpress
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-spotio
+  label: Spotio
+  partner: spotio
+  partner_name: Spotio
+  category: Sales & CRM
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/spotio2
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-portal-io
+  label: Portal.io
+  partner_name: Portal.io
+  category: Proposal & Invoice Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/portalio
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-vbout
+  label: VBOUT
+  partner: vbout
+  partner_name: VBOUT
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/vbout
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-upfirst
+  label: Upfirst
+  partner_name: Upfirst
+  category: AI Assistants
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/upfirst
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-review-harvest
+  label: Review Harvest
+  partner_name: Review Harvest
+  category: Reviews
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/review-harvest
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-marketing-360
+  label: Marketing 360
+  partner_name: Marketing 360
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/marketing-360
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-trello
+  label: Trello
+  partner: trello
+  partner_name: Trello
+  category: Project Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/trello
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-evernote
+  label: Evernote
+  partner: evernote
+  partner_name: Evernote
+  category: Notes
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/evernote
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-postgresql
+  label: PostgreSQL
+  partner: postgresql
+  partner_name: PostgreSQL
+  category: Databases
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/postgresql
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: fieldpulse-zoho-desk
+  label: Zoho Desk
+  partner: zoho-desk
+  partner_name: Zoho Desk
+  category: Customer Support
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/zoho-desk
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: fieldpulse-dext
+  label: Dext
+  partner: dext
+  partner_name: Dext
+  category: Accounting
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/fieldpulse/integrations/dext
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
   arazzo: null
